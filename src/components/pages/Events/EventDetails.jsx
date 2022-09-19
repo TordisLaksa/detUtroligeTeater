@@ -27,7 +27,6 @@ export const EventDetails = () => {
         <>
         {eventDetail ? (
         <section>
-            {console.log(eventDetail) }
             <figure>
                 <img src={eventDetail.image} alt={eventDetail.title} />
                 <figcaption>
@@ -62,7 +61,7 @@ export const EventDetails = () => {
                     )
                 })}
             </article>
-        </section> ) :  <>...loading</>}
+        </section> ) : <>...loading</>}
         </>
     )
 }
