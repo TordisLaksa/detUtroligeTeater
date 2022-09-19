@@ -5,8 +5,8 @@ export const Nav = () => {
     return (
         <nav>
             <ul>
-                <li><NavLink to={'/'}>Home</NavLink></li>
-                {/* <li><NavLink to={'/about'}>About</NavLink></li> */}
+                <li><NavLink to={'/'}>FORSIDE</NavLink></li>
+                <li><NavLink to={'/events'}>FORESTILLINGER & EVENTS</NavLink></li>
                 <Login />
             </ul>
         </nav>
