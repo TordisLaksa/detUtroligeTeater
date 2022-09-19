@@ -31,8 +31,9 @@
 
     }
     #detailSection{
-        border: 2px solid $primaryColor;
+        border-inline: 2px solid $primaryColor;
         border-top: 0;
+        border-bottom: 2px dashed $primaryColor;
         padding: 1%;
         @include Grid1;
         justify-content: space-between;
@@ -42,19 +43,61 @@
             justify-content: space-between;
             padding-top: 2%;
             border-top: 1px solid lightgrey;
-            h1{
-                color: $primaryColor;
-                font-size: 3rem;
+            #buyTicketWrapper{
+                h1{
+                    color: $primaryColor;
+                    font-size: 3rem;
+                }
+                p{
+                    font-size: 2rem;
+                }
             }
-            button{
-                width: 10%;
-                background-color: $primaryColor;
-                border: 0;
-                a{
-                    color: white;
-                    font-size: 1.4rem
+                button{
+                    width: 10%;
+                    background-color: $primaryColor;
+                    border: 0;
+                    height: 50%;
+                    a{
+                        color: white;
+                        font-size: 1.4rem
+                    }
+                    &:hover{
+                        background-color: $highlightOne;
+                    }
+                }
+        }
+    }
+    article{   
+        .nl2br{
+            @include nl2br;
+        }
+    }
+    #EventActors{
+        padding-bottom: 2%;
+        h3{
+            font-size: 2rem;
+            font-weight: 300;
+            padding-bottom: 2%;
+        }
+        .EventActorsWrapper{   
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            
+            figure{
+                border: 1px solid $primaryColor;
+                width: 70%;
+                img{
+                    @include ImgScaleDown;
+                }
+                figcaption{
+                  padding: 2.5%;
+                  text-align: center;
+                  h4{
+                    color: $highlightOne;
+                    font-size: 1rem;
+                  }  
                 }
             }
         }
-    }
+   }
 }

@@ -54,8 +54,9 @@ export const EventDetails = () => {
                 <article>
                         <p className="nl2br">{eventDetail.description}</p>
                 </article>
-                <article>
+                <article id="EventActors">
                     <h3>MEDVIRKENDE</h3>
+                    <div className="EventActorsWrapper">   
                     {eventDetail.actors && eventDetail.actors.map((actor, i) => {
                         return(
                             <figure key={i}>
@@ -66,6 +67,7 @@ export const EventDetails = () => {
                             </figure>
                         )
                     })}
+                    </div>
                 </article>
             </section>
         </div> 
