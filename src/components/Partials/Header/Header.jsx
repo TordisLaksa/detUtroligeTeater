@@ -1,9 +1,10 @@
+import { BurgerMenu } from "../Nav/BurgerMenu"
 import { Nav } from "../Nav/Nav"
 
 export const Header = () => {
     return (
         <header>
-            {/* LOGO HER? */}
+            <BurgerMenu />
             <Nav />
         </header>
     )

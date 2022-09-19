@@ -1,0 +1,35 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#EventListSection{
+    @include Grid1;
+    .mainArticle{
+        @include Grid3;
+        border: 1px solid $highlightOne;
+        padding: 1%;
+        margin-bottom: .5%;
+        figure{
+           display: flex;
+           
+            img{
+                @include ImgScaleDown;
+                width: 20%;
+                padding-right: 1%;
+            }
+            figcaption{
+                width: 50%;
+                padding-right: 5%;
+                margin-block: auto;
+                h2{
+                    color: $highlightOne;
+                    font-size: 2.2rem;
+                    font-weight: 200;
+                }
+            }
+        }
+        .eventStageDate{
+            border-left: 2px solid #77889930;
+            margin-left: -30%;
+            padding-left: 30%;
+        }
+    }
+}

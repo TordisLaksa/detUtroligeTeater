@@ -1,0 +1,36 @@
+@import '../../../Assets/SCSS/bundle.scss';
+footer{
+    display: grid;
+    grid-template-columns: 2fr .5fr;
+    gap: 5%;
+    background-color: $secondaryColor;
+    padding: 2%;
+    color: white;
+    
+    #footerDivider{
+        @include Grid3;
+        article{
+            h2{
+                font-size: 1.7rem;
+                padding-bottom: 2%;
+            }
+            p{
+                font-size: 1.2rem;
+            }
+            a{
+                color: white;
+            }
+        }
+    }
+    #media{
+        display: flex;
+        justify-content: flex-end;
+        a{
+            width: 20%;
+            padding: 1%;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

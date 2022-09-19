@@ -1,0 +1,79 @@
+.burgerMenu {
+    @media (width > 1299px) {
+        display: none;
+    }
+
+    position: absolute;
+    top: 0;
+    left: 94vw;
+    height: 1vw;
+    width: 5vw;
+    z-index: 5;
+
+    //gemmer x når menuen ikke er åben
+    .burgerMenuClose {
+        display: none;
+    }
+
+    .burgerMenuHome {
+        position: absolute;
+        padding-bottom: 1vw;
+        height: 6.5vw;
+        width: 3vw;
+        // color: $background;
+        transition: .9s ease-in-out;
+    }
+}
+
+.burgerMenuActive {
+    // background-color: red;
+    position: absolute;
+    //MÅSKE DEN HER
+    left: 94vw;
+    width: 4vw;
+    height: 5vw;
+    right: 1.8vw;
+
+    .burgerMenuHome {
+        display: none;
+    }
+
+    .burgerMenuClose {
+        position: absolute;
+        width: 3vw;
+        height: 6.5vw;
+        // color: $background;
+        transition: .9s ease-in-out;
+        z-index: 2;
+    }
+}
+
+.menu {
+    display: none;
+}
+
+.activeMenu {
+
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    // background-color: $headandfoot;
+    top: 0;
+    left: -5vw;
+    width: 100%;
+    height: 6vw;
+    padding: 1.6vw 0 1.8vw 1vw;
+    z-index: 5;
+
+    li {
+        list-style: none;
+        padding-inline: 2vw;
+
+        .navigationLinks {
+            // color: $background;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+    }
+}

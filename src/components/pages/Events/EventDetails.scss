@@ -1,0 +1,60 @@
+@import '../../../Assets/SCSS/bundle.scss';
+#DetailWrapper{
+    @include Grid1;
+    #figureHero{
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        img{
+            border: 10px solid $primaryColor;
+            width: 60%;
+        }
+        #heroCaption{
+            margin-top: 1%;
+            border: 2px solid $primaryColor;
+            border-bottom: 0;
+            width: 100%;
+            padding: 1%;
+            
+            .detailDivider{
+                @include Grid2;
+                gap: 38%;
+                .moveRight{
+                    padding-left: 40%;
+                }
+                h3{
+                    font-weight: 400;
+                    font-size: 2rem;
+                }
+            }
+        }
+
+    }
+    #detailSection{
+        border: 2px solid $primaryColor;
+        border-top: 0;
+        padding: 1%;
+        @include Grid1;
+        justify-content: space-between;
+        gap: 2%;
+        #specificEvent{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 2%;
+            border-top: 1px solid lightgrey;
+            h1{
+                color: $primaryColor;
+                font-size: 3rem;
+            }
+            button{
+                width: 10%;
+                background-color: $primaryColor;
+                border: 0;
+                a{
+                    color: white;
+                    font-size: 1.4rem
+                }
+            }
+        }
+    }
+}

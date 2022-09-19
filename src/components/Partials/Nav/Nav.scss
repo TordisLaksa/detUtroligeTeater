@@ -1,0 +1,25 @@
+@import '../../../Assets/SCSS/bundle.scss';
+nav {
+    @media (width < 1299px) {
+        display: none;
+    }
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-block: 1%;
+    
+    img{
+        padding-left: 5%;
+        width: 40%;
+    }
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        vertical-align: middle;
+        margin-block: auto;
+        
+        li{
+            padding-left: 5%;
+
+        }
+    }
+}

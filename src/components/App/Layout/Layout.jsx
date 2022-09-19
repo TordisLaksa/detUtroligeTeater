@@ -13,8 +13,8 @@ const Layout = props => {
     
     return(
         <>
-            <h1>{props.title}</h1>
-            {props.children}
+        <h1>{props.title}</h1>
+        {props.children}
         </>
     )
 }

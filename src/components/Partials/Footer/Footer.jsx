@@ -1,3 +1,8 @@
+import './Footer.scss'
+import Facebook from '../../../Assets/Images/Facebook.svg'
+import Instagram from '../../../Assets/Images/Instagram.svg'
+import LinkedIn from '../../../Assets/Images/LinkedIn.svg'
+
 export const Footer = () => {
     return (
         <footer>
@@ -35,10 +40,10 @@ export const Footer = () => {
                     <p>Handelsbetingelser</p>
                 </article>
             </div>
-            <article>
-                <a href="https://www.facebook.com" target='_blank' rel="noreferrer"><img src="" alt="Facebook" /></a>
-                <a href="https://www.instagram.com" target='_blank' rel="noreferrer"><img src="" alt="Instagram" /></a>
-                <a href="https://www.linkedin.com" target='_blank' rel="noreferrer"><img src="" alt="LinkedIn" /></a>
+            <article id='media'>
+                <a href="https://www.facebook.com" target='_blank' rel="noreferrer"><img src={Facebook} alt="Facebook" /></a>
+                <a href="https://www.instagram.com" target='_blank' rel="noreferrer"><img src={Instagram} alt="Instagram" /></a>
+                <a href="https://www.linkedin.com" target='_blank' rel="noreferrer"><img src={LinkedIn} alt="LinkedIn" /></a>
             </article>
         </footer>
     )

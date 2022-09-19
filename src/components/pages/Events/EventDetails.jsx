@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ConvertedDate, PriceToDK, StrConverter } from "../../App/Helper/Helpers"
 import { Layout } from "../../App/Layout/Layout"
+import { Review } from "./Review"
+import './EventDetails.scss';
 
 export const EventDetails = () => {
     const [ eventDetail, setEeventDetail ] = useState({})
@@ -26,42 +28,50 @@ export const EventDetails = () => {
     return(
         <>
         {eventDetail ? (
-        <section>
-            <figure>
+        <>
+        <div id="DetailWrapper">
+            <figure id="figureHero">
                 <img src={eventDetail.image} alt={eventDetail.title} />
-                <figcaption>
+                <figcaption id="heroCaption">
                     <article className="detailDivider">
                         <div>
                             <p>{eventDetail.stage_name}</p>
                             <h3>{ConvertedDate(eventDetail.startdate, false)} - {ConvertedDate(eventDetail.stopdate, true)}</h3>
                         </div>
-                        <h3>BILLETPRIS: {PriceToDK(eventDetail.price)} KR</h3>
-                    </article>
-                    <article>
-                    <Layout title={eventDetail.title} description={StrConverter(eventDetail.description)}>
-                        <button><Link to={'/'}>KØB BILLET</Link></button>
-                    </Layout>
-                    <p>{eventDetail.genre}</p>
-                    </article>
-                    <article>
-                        <p className="nl2br">{eventDetail.description}</p>
+                        <h3 className="moveRight">BILLETPRIS: {PriceToDK(eventDetail.price)} KR.</h3>
                     </article>
                 </figcaption>
             </figure>
-            <article>
-                <h3>MEDVIRKENDE</h3>
-                {eventDetail.actors && eventDetail.actors.map((actor, i) => {
-                    return(
-                        <figure key={i}>
-                            <img src={actor.image} alt={actor.name} />
-                            <figcaption>
-                                <h4>{actor.name}</h4>
-                            </figcaption>
-                        </figure>
-                    )
-                })}
-            </article>
-        </section> ) : <>...loading</>}
+            <section id="detailSection">
+                <article id="specificEvent">
+                    <div id="buyTicketWrapper">
+                    <Layout title={eventDetail.title} description={StrConverter(eventDetail.description)}>
+                    <p>{eventDetail.genre}</p>
+                    </Layout>
+                    </div>
+                        <button><Link to={'/'}>KØB BILLET</Link></button>
+                </article>
+                <article>
+                        <p className="nl2br">{eventDetail.description}</p>
+                </article>
+                <article>
+                    <h3>MEDVIRKENDE</h3>
+                    {eventDetail.actors && eventDetail.actors.map((actor, i) => {
+                        return(
+                            <figure key={i}>
+                                <img src={actor.image} alt={actor.name} />
+                                <figcaption>
+                                    <h4>{actor.name}</h4>
+                                </figcaption>
+                            </figure>
+                        )
+                    })}
+                </article>
+            </section>
+        </div> 
+        <Review />
+        </>) : <>...loading</>}
         </>
     )
 }
+
