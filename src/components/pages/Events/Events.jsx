@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { ConvertedDate } from '../../App/Helper/Helpers';
 import { Layout } from '../../App/Layout/Layout'
 
@@ -36,8 +37,8 @@ export const EventList = () => {
                                 <h3>{ConvertedDate(event.startdate)} - {ConvertedDate(event.stopdate)}</h3>
                             </article>
                             <article>
-                                <button className='blue'>LÆS MERE</button>
-                                <button className='yellow'>KØB BILLET</button>
+                                <button className='blue'><Link to={'/'}>LÆS MERE</Link></button>
+                                <button className='yellow'><Link to={'/'}>KØB BILLET</Link></button>
                             </article>
                         </article>
                     )
