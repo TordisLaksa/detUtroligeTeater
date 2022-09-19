@@ -4,7 +4,7 @@ export const PriceToDK = (num) => {
 }
 
 //Ændrer min dato til Dag(dato) - Måned - År
-export const ConvertedDate = (date) => {
+export const ConvertedDate = (date, withYear) => {
     const month = [
         "Januar", "Februar", "Marts", 
         "April", "Maj", "Juni", 
@@ -14,5 +14,16 @@ export const ConvertedDate = (date) => {
         
     let myDate = new Date(date)
     
-    return myDate.getDate() + '. ' + month[myDate.getMonth()] + ' ' + myDate.getFullYear();
+    if (withYear) {
+        return myDate.getDate() + '. ' + month[myDate.getMonth()] + ' ' + myDate.getFullYear();
+    } else{
+        return myDate.getDate() + '. ' + month[myDate.getMonth()];
+    }
+    
+}
+
+//Forkorter en string (bruges ift mit description meta tag)
+export const StrConverter = (str) => {
+    const Str = String(str);
+    return Str.substring(0, 150);
 }

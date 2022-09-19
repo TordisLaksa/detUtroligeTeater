@@ -34,10 +34,10 @@ export const EventList = () => {
                             <article>
                                 <p>{event.stage_name}</p>
                                 {/* ConvertedDate kommer fra min helper */}
-                                <h3>{ConvertedDate(event.startdate)} - {ConvertedDate(event.stopdate)}</h3>
+                                <h3>{ConvertedDate(event.startdate, false)} - {ConvertedDate(event.stopdate, true )}</h3>
                             </article>
                             <article>
-                                <button className='blue'><Link to={'/'}>LÆS MERE</Link></button>
+                                <button className='blue'><Link to={`${event.id}`}>LÆS MERE</Link></button>
                                 <button className='yellow'><Link to={'/'}>KØB BILLET</Link></button>
                             </article>
                         </article>
