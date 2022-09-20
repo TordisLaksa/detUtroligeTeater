@@ -13,7 +13,7 @@ const Layout = props => {
     
     return(
         <>
-        <h1>{props.title}</h1>
+        <h1 className={props.title}>{props.title}</h1>
         {props.children}
         </>
     )

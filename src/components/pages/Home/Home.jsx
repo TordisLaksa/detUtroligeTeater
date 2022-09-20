@@ -11,8 +11,7 @@ export const Home = () => {
     
     return(
         <>
-        
-        <Layout title=''>
+        <Layout title='Det Utrolige Teater Præsenterer'>
             <MainHeroEvent />
             <HighlightedCards />
         </Layout>
@@ -40,7 +39,7 @@ const MainHeroEvent = () => {
     }, [])
     
     return(
-        <section>
+        <section id="HeroSection">
             {heroEvent && heroEvent.map(item => {
             return(
                 <figure key={item.id}>
@@ -48,14 +47,14 @@ const MainHeroEvent = () => {
                         <article>
                             <p>{item.stage_name}</p>
                             <h4>{ConvertedDate(item.startdate)} - {ConvertedDate(item.stopdate, true)}</h4>
-                            <hr />
+                            <hr className="heroHR" />
                         </article>
                         <article>
-                            <h1>{item.title}</h1>
-                            <h2>{item.genre}</h2>
+                            <h2>{item.title}</h2>
+                            <h3>{item.genre}</h3>
                         </article>
                     </figcaption>
-                    <img src={item.image_medium} alt="" />
+                    <img src={item.image_medium} alt={item.title} />
                 </figure>
                 )    
             })}
@@ -81,17 +80,17 @@ const HighlightedCards = () => {
     }, [])
     
     return(
-        <section>
+        <section id="CardSection">
             {getCardData && getCardData.map(card => {
                 console.log(card);
                 return(
                     <figure key={card.id}>
-                        <img src={card.image_medium} alt={card.title} />
+                        <img src={card.image_small} alt={card.title} />
                         <figcaption>
                             <article>
                                 <p>{card.stage_name}</p>
                                 <h4>{ConvertedDate(card.startdate)} - {ConvertedDate(card.stopdate, true)}</h4>
-                                <hr />
+                                <hr className="heroHR"/>
                             </article>
                             <article>
                                 <h2>{card.title}</h2>
@@ -105,7 +104,7 @@ const HighlightedCards = () => {
                     </figure>
                 )
             })}
-            <button><Link to={'/events'}>SE ALLE FORESTILLINGER</Link></button>
+            <button id="showAll"><Link to={'/events'}>SE ALLE FORESTILLINGER</Link></button>
         </section>
     )
 }

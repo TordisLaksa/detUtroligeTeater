@@ -1,0 +1,154 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+.Det{
+    text-align: center;
+    font-size: 4rem;
+    color: $highlightOne;
+    margin-bottom: -2%;
+}
+
+#HeroSection{
+    margin-block: 5%;
+    figure{
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        border: 2px solid $primaryColor;
+        height: 80%;
+        figcaption{
+            padding-left: 3%;
+            margin-right: -25%;
+            article{
+                padding: 3%;
+                text-align: right;
+                &:first-of-type{
+                    padding-top: 50%;
+                    p{
+                        font-size: 1.5rem;
+                    }
+                    h4{
+                        font-size: 2rem;
+                        padding-bottom: 2%;
+                    }
+                    .heroHR{
+                        border: 1px solid #00000020;
+                    }
+                }
+                &:last-of-type{
+                    h2{
+                        font-family: $secFont;
+                        font-weight: 200;
+                        font-size: 4rem;
+                        color: $highlightOne;
+                    }
+                    h3{
+                        font-size: 3rem;
+                        font-weight: 200;
+                    }
+                    
+                }
+            }
+        }
+        img{
+            margin-left: 15%;
+            width: 85%;
+            border: 20px solid $primaryColor;
+        }
+    }
+}
+
+#CardSection{
+    position: relative;
+    @include Grid3;
+    gap: 2%;
+    padding-bottom: 5%;
+    figure{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3%;
+        border: 2px solid $primaryColor;
+        position: relative;
+        padding-bottom: 15%;
+        margin-bottom: 10%;
+        img{
+            width: 100%;
+            height: 20vw;
+            object-fit: cover;
+            border: 10px solid $primaryColor;
+        }
+        figcaption{
+            padding: 4%;
+            text-align: right;
+            article{
+                p{
+                    font-size: 2rem;
+                }
+                h4{
+                    margin-left: -10%;
+                    width: 110%;
+                    font-size: 1.9rem;
+                    padding-bottom: 2%;
+                }
+                .heroHR{
+                        border: 1px solid #00000020;
+                        margin-bottom: 5%;
+                }
+                h2{
+                    color: $highlightOne;
+                    font-size: 3rem;
+                    font-weight: 300;
+                    font-family: $secFont;
+                    margin-left: -10%;
+                }
+                h3{
+                    font-size: 2.5rem;
+                    font-weight: 400;
+                    padding-bottom: 2%;
+                }
+                div{
+                    position: absolute;
+                    left: 4%;
+                    @include Grid2;
+                    gap: 5%;
+                    button{
+                        width: 11vw;
+                        padding-block: 5%; 
+                        border: none;
+                        &:first-of-type{
+                            background-color: $secondaryColor; 
+                            &:hover{
+                                background-color: $highlightTwo;
+                            }
+                        }
+                        &:last-of-type{
+                            background-color: $primaryColor;
+                            &:hover {
+                                background-color: $highlightOne;
+                            }
+                        }
+                        a{
+                            color: white;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #showAll{
+        border: 0;
+        position: absolute;
+        bottom: 5%;
+        left: 80%;
+        width: 20%;
+        padding-block: .5%;
+        background-color: $primaryColor;
+        a{
+            color: white;
+            font-size: 1.2rem;
+        }
+        &:hover{
+            background-color: $highlightOne;
+        }
+    }
+}
