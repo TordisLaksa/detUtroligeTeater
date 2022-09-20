@@ -76,7 +76,6 @@ export const Login = () => {
                 </div>
                 <div>
                     <button>Login</button>
-                    <button type="reset">Nulstil felter</button>
                 </div>
             </form>
         ) :

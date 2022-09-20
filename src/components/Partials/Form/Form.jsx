@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
 import { useParams } from "react-router-dom";
 import './Form.scss'
@@ -48,7 +47,7 @@ export const Form = () => {
                         <span>Udfyld venligst din email!</span>
                     )}
             </div>
-            <SeatSelector/>
+            <SeatSelector />
             <div>
                 <button>Godkend bestilling</button>
             </div>
@@ -58,26 +57,61 @@ export const Form = () => {
 }
 
 
-export const SeatSelector = ( ) => {
+const SeatSelector = () => {
     const [ seatData, setSeatData ] = useState([]);
+    const [ lineData, setLineData ] = useState([]);
     const { event_id } = useParams();
-    let lineArray = [];
+
     
     useEffect(() => {
         const getSeats = async () => {
             const response = await axios.get(`https://api.mediehuset.net/detutroligeteater/seats/${event_id}`)
             if (response.data) {
-               setSeatData(response.data.items)
+                let temporaryArr = [];
+                setSeatData(response.data.items)
+                for(let i=0; i < response.data.items[response.data.items.length -1].line; i++){
+                    temporaryArr.push(i+1)
+                }
+                setLineData(temporaryArr);
             }
         }
-        getSeats();
-    
+        getSeats();        
+        
     }, [event_id])
-      
     
-return (
-    <section id="SeatSeaction">
+    // const OnClick = () => {
+    //     let checked = document.querySelectorAll('.seat');
+    //     let max = 2;
+    //     for(let i = 0; i< checked.length; i++){
+    //         checked[i].onClick = SelectiveCheck;
+    //     }
+    //     const SelectiveCheck = (e) => {
+    //         let checkedChecks = document.querySelectorAll('.seat:checked')
+    //         if(checkedChecks.length >= max + 1) {
+    //             return false;
+    //         }
+    //     }
+    // }
 
+return(
+    <section id="SeatSeaction">
+        {lineData && lineData.map(line => {
+            return(
+                <div key={line} className={`line${line}`}>
+                    <p>{line}</p>
+                    {seatData && seatData.map(seat => {
+                        if(seat.line == line) {
+                            return(
+                                <label key={seat.id}>
+                                <input className={`seat${seat.line}`} type='checkbox'/>
+                                </label>
+                            )
+                        }
+                    })}
+                    <p>{line}</p>
+                </div>
+            )
+        })}
     </section>
 )
         

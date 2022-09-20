@@ -36,7 +36,7 @@ export const Review = () => {
             return(
                 <article key={comment.id}>
                     <p>{comment.num_stars} stjerner</p>
-                    <p>{ConvertedDate(comment.created_friendly)}</p>
+                    <p>{ConvertedDate(comment.created, true)}</p>
                     <p><strong>{comment.user.firstname} {comment.user.lastname}</strong></p>
                     <p className="highlightColor">{comment.comment}</p>
                 </article>    
@@ -69,7 +69,7 @@ export const PostReview = ( props ) => {
         try {
             const response = await axios.post('https://api.mediehuset.net/detutroligeteater/reviews', formData, options)
             if (response) {
-                console.log(123);
+                console.log('DO SOMETHING');
             }
         } catch (error) {
             console.error(`Fejl i Review ${error}`)
@@ -100,7 +100,6 @@ export const PostReview = ( props ) => {
                 </div>
                 <div className="CommentDivButtons">
                     <button>Send</button>
-                    <button type="reset">Annuller</button>
                 </div>
             </fieldset>
         </form>
