@@ -60,7 +60,7 @@ export const EventDetails = () => {
                     <p>{eventDetail.genre}</p>
                     </Layout>
                     </div>
-                        <button><Link to={'/'}>KØB BILLET</Link></button>
+                        <button><Link to={`/tickets/${event_id}`}>KØB BILLET</Link></button>
                 </article>
                 <article>
                         <p className="nl2br">{eventDetail.description}</p>
@@ -70,12 +70,14 @@ export const EventDetails = () => {
                         <div className="EventActorsWrapper">   
                     {eventDetail.actors && eventDetail.actors.map((actor, i) => {
                         return(
-                            <figure key={i}>
+                            <Link key={i} to={'/actors'} state={{actorData: actor}}>
+                            <figure>
                                 <img src={actor.image} alt={actor.name} />
                                 <figcaption>
                                     <h4>{actor.name}</h4>
                                 </figcaption>
                             </figure>
+                            </Link>
                         )
                     })}
                     </div>

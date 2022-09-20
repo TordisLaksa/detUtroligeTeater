@@ -40,7 +40,7 @@ export const EventList = () => {
                             </article>
                             <article className='eventButtons'>
                                 <button className='blue'><Link to={`${event.id}`}>LÆS MERE</Link></button>
-                                <button className='yellow'><Link to={'/'}>KØB BILLET</Link></button>
+                                <button className='yellow'><Link to={`/tickets/${event.id}`}>KØB BILLET</Link></button>
                             </article>
                         </article>
                     )

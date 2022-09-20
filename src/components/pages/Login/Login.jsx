@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../../App/Auth/Auth";
+import { MyPage } from "../Mypage/MyPage";
 
 export const Login = () => {
     //useForm
@@ -82,6 +83,7 @@ export const Login = () => {
             <div>
                 <p>Du er logget ind som <i>{loginData.username}</i></p>
                 <button onClick={logOut}>Log ud</button>
+                <MyPage />
             </div>
         }
         </>

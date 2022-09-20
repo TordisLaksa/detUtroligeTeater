@@ -5,6 +5,7 @@ import { EventList } from '../../pages/Events/Events';
 import { Home } from '../../pages/Home/Home'
 import { Login } from "../../pages/Login/Login";
 import { NoPage } from '../../pages/NoPage';
+import { Ticket } from '../../pages/Ticket/Ticket';
 
 
 export const AppRouter = () => {
@@ -17,6 +18,7 @@ export const AppRouter = () => {
                 {/* <Route path=':event_id' element={<Review />} /> */}
             </Route>
             <Route path='/login' element={<Login />} />
+            <Route path='/tickets/:event_id' element={<Ticket />} />
             <Route path='*' element={<NoPage />} />
         </Routes>
     )

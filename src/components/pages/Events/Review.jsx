@@ -72,8 +72,7 @@ export const PostReview = ( props ) => {
                 console.log(123);
             }
         } catch (error) {
-            console.log(432);
-            console.log(options)
+            console.error(`Fejl i Review ${error}`)
         }
     }
     return(
