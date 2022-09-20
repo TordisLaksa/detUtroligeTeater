@@ -45,7 +45,7 @@
             border-top: 1px solid lightgrey;
             #buyTicketWrapper{
                 h1{
-                    color: $primaryColor;
+                    color: $highlightOne;
                     font-size: 3rem;
                 }
                 p{
@@ -70,6 +70,7 @@
     article{   
         .nl2br{
             @include nl2br;
+            color: $highlightOne;
         }
     }
     #EventActors{

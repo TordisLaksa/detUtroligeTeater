@@ -56,7 +56,7 @@ export const EventDetails = () => {
                 </article>
                 <article id="EventActors">
                     <h3>MEDVIRKENDE</h3>
-                    <div className="EventActorsWrapper">   
+                        <div className="EventActorsWrapper">   
                     {eventDetail.actors && eventDetail.actors.map((actor, i) => {
                         return(
                             <figure key={i}>
