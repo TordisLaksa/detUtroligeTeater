@@ -6,10 +6,13 @@ import { ConvertedDate, PriceToDK, StrConverter } from "../../App/Helper/Helpers
 import { Layout } from "../../App/Layout/Layout"
 import { Review } from "./Review"
 import './EventDetails.scss';
+import { Login } from '../Login/Login'
+import { useAuth } from "../../App/Auth/Auth"
 
 export const EventDetails = () => {
     const [ eventDetail, setEeventDetail ] = useState({})
     const { event_id } = useParams(0);
+    const { loginData } = useAuth();
     
     useEffect(() => {
         const getDetailData = async () => {
@@ -25,6 +28,14 @@ export const EventDetails = () => {
         getDetailData();
     }, [event_id])
 
+    const Message = () => {
+        return( 
+            <section id="ReviewLogin">
+                <h4>Du skal være logget ind for at skrive en anmeldelse</h4>
+                <Login />
+            </section>
+        )
+    }
     return(
         <>
         {eventDetail ? (
@@ -71,7 +82,7 @@ export const EventDetails = () => {
                 </article>
             </section>
         </div> 
-        <Review />
+        {!loginData ? <Message /> : <Review /> }
         </>) : <>...loading</>}
         </>
     )

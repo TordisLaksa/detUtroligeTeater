@@ -32,7 +32,7 @@ export const Review = () => {
         <section>
             <h2>ANMELDELSER</h2>
         {reviewData && reviewData.map(comment => {
-            // console.log(comment);
+            console.log(comment);
             return(
                 <article key={comment.id}>
                     <p>{comment.num_stars} stjerner</p>
