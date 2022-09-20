@@ -59,8 +59,9 @@ export const Form = () => {
 
 
 export const SeatSelector = ( ) => {
-    const [ seatData, setSeatData ] = useState();
+    const [ seatData, setSeatData ] = useState([]);
     const { event_id } = useParams();
+    let lineArray = [];
     
     useEffect(() => {
         const getSeats = async () => {
@@ -70,14 +71,14 @@ export const SeatSelector = ( ) => {
             }
         }
         getSeats();
+    
     }, [event_id])
       
+    
+return (
+    <section id="SeatSeaction">
 
-        return (
-            <section id="SeatSeaction">
-
-                
-            </section>
-        )
+    </section>
+)
         
 }
