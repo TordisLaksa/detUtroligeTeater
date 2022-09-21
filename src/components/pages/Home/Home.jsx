@@ -82,7 +82,7 @@ const HighlightedCards = () => {
     return(
         <section id="CardSection">
             {getCardData && getCardData.map(card => {
-                console.log(card);
+                // console.log(card);
                 return(
                     <figure key={card.id}>
                         <img src={card.image_small} alt={card.title} />

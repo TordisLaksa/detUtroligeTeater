@@ -1,0 +1,60 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+
+#ActorSection{
+    border: 2px solid $primaryColor;
+    padding: 5%;
+    margin-block: 2%;
+    .Skuespillere{
+        color: $highlightOne;
+        font-size: 3rem;
+        margin-bottom: 2%;
+    }
+    #actorWrapper{
+        figure{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2%;
+            border-bottom: 1px solid #00000020;
+            padding-block: 2%;
+            img{
+                width: 70%;
+            }
+            figcaption{
+                // display: grid;
+                // grid-template-columns: 3fr .5fr;
+                position: relative;
+                article{
+                    margin-right: 20%;
+                    h2{
+                        font-size: 2.3rem;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                    }
+                    .nl2br{
+                        @include nl2br;
+                        color: $highlightOne;
+                        font-size: 1.3rem;
+                    }
+                }
+                button{
+                    position: absolute;
+                    left: 85%;
+                    width: 15%;
+                    bottom: 0;
+                    padding: 1%;
+                    border: 0;
+                    background-color: $secondaryColor;
+                    &:hover{
+                    background-color: $highlightTwo;
+                    }
+                    a{
+                        color: white;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }  
+        
+    }
+}

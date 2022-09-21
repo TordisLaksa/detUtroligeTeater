@@ -2,6 +2,7 @@ import { Layout } from "../../App/Layout/Layout"
 import { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import './ActorDetails.scss'
 
 export const ActorDetails = () => {
     const [ actorData, setActorData ] = useState({});
@@ -23,6 +24,7 @@ export const ActorDetails = () => {
     
     return(
         <section id="ActorDetailSection">
+            <div id="detailWrapper">
             <Layout title='Skuespillere'>
                 {actorData ? (
                     <figure>
@@ -32,11 +34,12 @@ export const ActorDetails = () => {
                                 <h2>{actorData.name}</h2>
                                 <p className="nl2br">{actorData.description}</p>
                             </article>
-                            <button><Link to={'/actors'}>ALLE SKUESPILLERE</Link></button>
                         </figcaption>
                     </figure>
                 ) : <>...loading</>}
             </Layout>
+            </div>
+            <button id="ActorDetailButton"><Link to={'/actors'}>ALLE SKUESPILLERE</Link></button>
         </section>
     )
 }

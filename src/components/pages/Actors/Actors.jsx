@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
+import { DescriptionConverter } from "../../App/Helper/Helpers";
 import { Layout } from "../../App/Layout/Layout";
 import './Actors.scss'
 
@@ -23,8 +24,9 @@ export const Actors = () => {
     }, [])
     
     return(
-        <section id="Actors">
+        <section id="ActorSection">
             <Layout title='Skuespillere'>
+                <div id="actorWrapper">
                 {actorData && actorData.map(actor => {
                     // console.log(actor);
                     return(
@@ -33,13 +35,14 @@ export const Actors = () => {
                             <figcaption>
                                 <article>
                                     <h2>{actor.name}</h2>
-                                    <p className="nl2br">{actor.description}</p>
+                                    <p className="nl2br">{DescriptionConverter(actor.description)}....</p>
                                 </article>
                                 <button><Link to={actor.id}>LÆS MERE</Link></button>
                             </figcaption>
                         </figure>
                     )
                 })}
+                </div>
             </Layout>
         </section>
     )
