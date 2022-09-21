@@ -1,35 +1,80 @@
 @import '../../../Assets/SCSS/bundle.scss';
 
+.Oversigt{
+    font-size: 3.5rem;
+    padding-block: 2%;
+    color: $highlightOne;
+    text-align: right;
+    font-weight: 500;
+}
 #EventListSection{
     @include Grid1;
+    margin-bottom: 2%;
     .mainArticle{
-        @include Grid3;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
         border: 1px solid $highlightOne;
         padding: 1%;
         margin-bottom: .5%;
         figure{
-           display: flex;
-           
+           display: grid;
+           grid-template-columns: .5fr 2fr;
+
             img{
                 @include ImgScaleDown;
-                width: 20%;
-                padding-right: 1%;
             }
             figcaption{
-                width: 50%;
-                padding-right: 5%;
+                padding-left: 5%;
+                width: fit-content;
                 margin-block: auto;
                 h2{
                     color: $highlightOne;
-                    font-size: 2.2rem;
-                    font-weight: 200;
+                    font-size: 2.3rem;
+                    font-weight: 500;
                 }
             }
         }
         .eventStageDate{
             border-left: 2px solid #77889930;
             margin-left: -30%;
-            padding-left: 30%;
+            padding-left: 8%;
+            margin-block: auto;
+            p{
+                font-size: 1.3rem;
+                font-weight: 300;
+            }
+            h3{
+                font-size: 1.5rem;
+            }
+        }
+        .eventButtons{
+            display: flex;
+            margin-block: auto;
+            margin-left: 20%;
+            button{
+                border: 0;
+                padding: 2%;
+                font-size: 1.3rem;
+                margin-left: 2.5%;
+                width: 50%;
+                
+                &.blue{
+                    background-color: $secondaryColor;
+                    &:hover{
+                        background-color: $highlightTwo;
+                    }
+                }
+                &.yellow{
+                    background-color: $primaryColor;
+                    &:hover{
+                        background-color: $highlightOne;
+                    }
+                }
+            a{
+                color: white;
+                padding: 1%;
+            }
+            }
         }
     }
 }

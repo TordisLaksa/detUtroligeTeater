@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { ConvertedDate } from '../../App/Helper/Helpers';
 import { Layout } from '../../App/Layout/Layout'
+import { MainHeroEvent } from '../Home/Home';
 import './Events.scss'
 
 export const EventList = () => {
@@ -23,7 +24,9 @@ export const EventList = () => {
     }, [])
     
     return(
-        <Layout title='Forestillinger og events' description='Her kan du se alle vores forestillinger og events'>
+        <>
+        <MainHeroEvent />
+        <Layout title='Oversigt' description='Her kan du se alle vores forestillinger og events'>
             <section id='EventListSection'>
                 {eventListData && eventListData.map(event => {
                     // console.log(event);
@@ -47,6 +50,7 @@ export const EventList = () => {
                 })}
             </section>
         </Layout>
+        </>
     )
 }
 

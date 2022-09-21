@@ -20,7 +20,7 @@ export const Home = () => {
 }
 
 
-const MainHeroEvent = () => {
+export const MainHeroEvent = () => {
     const [ heroEvent, setHeroEvent ] = useState();
     
     useEffect(() => {
