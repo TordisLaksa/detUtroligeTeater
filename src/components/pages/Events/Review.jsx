@@ -48,7 +48,6 @@ export const Review = () => {
 }
 
 export const PostReview = ( props ) => {
-    // const { event_id } = useParams();
     const { loginData } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     
