@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { Layout } from "../../App/Layout/Layout";
 
@@ -26,7 +25,7 @@ export const Actors = () => {
         <section>
             <Layout title='Skuespillere'>
                 {actorData && actorData.map(actor => {
-                    console.log(actor);
+                    // console.log(actor);
                     return(
                         <figure key={actor.id}>
                             <img src={actor.image} alt={actor.name} />
