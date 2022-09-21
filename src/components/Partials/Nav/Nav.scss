@@ -11,16 +11,24 @@ nav {
         padding-left: 5%;
         width: 40%;
     }
-    ul{
-        display: flex;
-        justify-content: flex-end;
-        vertical-align: middle;
-        margin-block: auto;
-        
-        li{
-            padding-left: 7%;
+    #navWrapper{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        form{
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 1%;
+        }
+        ul{
+            display: flex;
+            justify-content: flex-end;
+            vertical-align: middle;
+            margin-block: auto;
             
-            a{
+            li{
+                padding-left: 7%;
+                
+                a{
                 font-size: 1.5rem;
                 color: #707070;
                 &:focus{
@@ -32,4 +40,5 @@ nav {
             }
         }
     }
+}   
 }

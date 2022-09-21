@@ -9,6 +9,7 @@ import { Login } from "../../pages/Login/Login";
 import { Edit } from '../../pages/Mypage/MyPage';
 import { NoPage } from '../../pages/NoPage';
 import { Ticket } from '../../pages/Ticket/Ticket';
+import { SearchEventResult } from '../../Partials/Search/SearchEventResult';
 
 
 export const AppRouter = () => {
@@ -26,6 +27,7 @@ export const AppRouter = () => {
             </Route> 
             <Route path='/edit/:id' element={<Edit />} />
             <Route path='/tickets/:event_id' element={<Ticket />} />
+            <Route path='/search' element={<SearchEventResult />} />
             <Route path='*' element={<NoPage />} />
         </Routes>
     )

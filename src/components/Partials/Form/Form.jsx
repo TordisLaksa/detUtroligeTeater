@@ -127,11 +127,14 @@ export const Form = ( ) => {
             </div>
             <div>
                 <label htmlFor="zipcode">Postnr. & By </label>
-                    <input type="number" id="zipcode" {...register('zipcode', { required: true, min: 4, max: 4 })} />
+                    <input type="number" id="zipcode" {...register('zipcode', { required: true, min: 1000, max: 9999 })} />
                     <input type="text" id="city" {...register('city', { required: true })} />
-                {(errors.zipcode || errors.city) && (
-                    <span>Udfyld venligst dit postnr. & by!</span>
-                )}
+                    {errors.zipcode && (
+                        <span>Udfyld venligst dit postnr. !</span>
+                    )}
+                    {errors.city && (
+                        <span>Udfyld venligst dit by!</span>
+                    )}
             </div>
             <div>
                 <label htmlFor="email">Email </label>
@@ -157,7 +160,7 @@ export const Form = ( ) => {
                                                     onClick={() => handleClick(seat.id)}
                                                     checked={checked[index]}
                                                     type="checkbox"
-                                                    disabled={seat.is_reserved == 1}
+                                                    disabled={seat.is_reserved >= 1}
                                                     name="seats[]"
                                                     value={seat.id} />
                                             </label>

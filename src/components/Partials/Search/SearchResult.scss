@@ -1,0 +1,22 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#NoResult{
+    margin-block: 5%;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#Results{
+    padding-block: 2%;
+    font-size: 2.5rem;
+    color: $highlightOne;
+    font-weight: 400;
+}
+#ResultWrapper{
+    margin-bottom: 2%;
+    article{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        
+    }
+}

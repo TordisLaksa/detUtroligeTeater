@@ -1,0 +1,20 @@
+#SearchForm{
+    input{
+        border: 0;
+        border-bottom: 1px solid #20202050;
+        width: 15%;
+        &:focus{
+            width: 20%;
+        }
+    }
+    button{
+        border: 0;
+        border-bottom: 1px solid #20202050;
+        background-color: #20202000;
+        #SearchLoop{
+            width: 1vw;
+            height: 1vw;
+            color: #20202050;
+        }
+    }
+}
