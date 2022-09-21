@@ -105,9 +105,3 @@ export const PostReview = ( props ) => {
         </>
     )
 }
-
-export const DeleteReview = () => {
-    return(
-        <></>
-    )
-}
