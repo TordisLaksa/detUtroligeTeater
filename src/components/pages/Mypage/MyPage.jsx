@@ -52,12 +52,12 @@ const MyReviews = () => {
                     </tr>
                     <tr><td><hr /></td></tr>
                 {myReviewData && myReviewData.map((review, i) => {
-                    // console.log(review);
+             
                     if (review.user_id == loginData.user_id) {
                         return(
                             <React.Fragment key={i}>
                                 <tr>
-                                    <td>{review.event_title}</td>
+                                    <td>{review.event_title}, {review.stage_name}</td>
                                     <td>{review.subject}</td>
                                     <td>{review.num_stars}&#9733;</td>
                                     <td>
