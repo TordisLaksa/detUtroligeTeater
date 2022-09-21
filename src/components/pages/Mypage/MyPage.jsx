@@ -7,6 +7,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { MdModeEdit } from "react-icons/md";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { useForm } from 'react-hook-form'
+import { NumStars } from "../Events/Review"
 
 export const MyPage = () => {
     return(
@@ -47,7 +48,7 @@ const MyReviews = () => {
                     <tr>
                         <th>Forestilling</th>
                         <th>Emne</th>
-                        <th>Antal &#9733;</th>
+                        <th>Antal stjerner</th>
                         <th>Rediger</th>
                     </tr>
                     <tr><td><hr /></td></tr>
@@ -59,7 +60,7 @@ const MyReviews = () => {
                                 <tr>
                                     <td>{review.event_title}, {review.stage_name}</td>
                                     <td>{review.subject}</td>
-                                    <td>{review.num_stars}&#9733;</td>
+                                    <td><NumStars num_stars={review.num_stars}/></td>
                                     <td>
                                         <Link to={`/edit/${review.id}`} state={{ commentData: review }}><MdModeEdit /></Link>
                                         <Delete id={review.id}/> 

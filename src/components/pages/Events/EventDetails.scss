@@ -14,11 +14,11 @@
             border: 2px solid $primaryColor;
             border-bottom: 0;
             width: 100%;
-            padding: 1%;
+            padding: 3%;
             
             .detailDivider{
                 @include Grid2;
-                gap: 38%;
+                gap: 35%;
                 .moveRight{
                     padding-left: 40%;
                 }
@@ -34,7 +34,7 @@
         border-inline: 2px solid $primaryColor;
         border-top: 0;
         border-bottom: 2px dashed $primaryColor;
-        padding: 1%;
+        padding: 3%;
         @include Grid1;
         justify-content: space-between;
         gap: 2%;
@@ -71,6 +71,7 @@
         .nl2br{
             @include nl2br;
             color: $highlightOne;
+            font-size: 1.4rem;
         }
     }
     #EventActors{
@@ -83,6 +84,9 @@
         .EventActorsWrapper{   
             display: grid;
             grid-template-columns: repeat(6, 1fr);
+            padding-bottom: 3%;
+            margin-bottom: 2%;
+            border-bottom: 2px solid #00000020;
             
             figure{
                 border: 1px solid $primaryColor;
@@ -96,6 +100,7 @@
                   h4{
                     color: $highlightOne;
                     font-size: 1rem;
+                    margin-left: -4%;
                   }  
                 }
             }

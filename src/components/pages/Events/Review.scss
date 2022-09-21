@@ -1,0 +1,106 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#ReviewSection{
+    border: 2px solid $primaryColor;
+    border-top: 0;
+    padding: 3%;
+    h2{
+        font-size: 2rem;
+        border-bottom: 2px solid #00000020;
+    }
+    #ReviewWrapper{
+        article{
+            padding-block: 2%;
+            border-bottom: 2px solid #00000020;
+            .StarWrapper{
+                svg{
+                    width: 1.7vw;
+                    height: 1.7vw;
+                    fill: $primaryColor;
+                    margin-right: 1%;
+                }
+            }
+            h5{
+                font-weight: 600;
+                font-size: 1.3rem;
+            }
+            h3{
+                font-size: 1.6rem;
+            }
+            p{
+                color: $highlightOne;
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+#FormWrapper{
+    background-color: $primaryColor;
+    margin-bottom: 4%;
+    color: white;
+    position: relative;
+    form{
+        font-family: $font-family;
+        border: 0;
+        fieldset{
+            padding: 2%;
+            border: 0;
+            #ReviewH2{
+                font-size: 2rem;
+                padding-bottom: 1.5%;
+            }
+        
+            .CommentDiv{
+                label{
+                    display: flex;
+                    h3{
+                        font-size: 1.4rem;
+                        font-weight: 400;
+                    }
+                    svg{
+                        margin-left: 1vw;
+                        margin-top: .2vw;
+                        width: 1.4vw;
+                        height: 1.4vw;
+                    }
+                }
+                input{
+                    border: 0;
+                    padding: 1%;
+                    width: 90%;
+                    font-size: 1.4rem; 
+                    margin-bottom: 1%;
+                    border-radius: 5px;
+                    font-family: $font-family;
+                }
+                textarea{
+                    font-family:$font-family;
+                    border: 0;
+                    width: 90%;
+                    height: 6vw;
+                    padding: 1%;
+                    resize: none;
+                    border-radius: 5px;
+                    font-size: 1.4rem;
+                }
+            }
+            .CommentDivButtons{
+                button{
+                    position: absolute;
+                    width: 6.5%;
+                    padding-block: .6%;
+                    font-size: 1.3rem;
+                    left: 91%;
+                    bottom: 8%;
+                    border-radius: 7px;
+                    border: 0;
+                    background-color: $highlightOne;
+                    color: white;
+                    &:hover{
+                        background-color: #f8bd73;
+                    }
+                }
+            }
+        }
+    }
+}

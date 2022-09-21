@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from '../../App/Auth/Auth'
 import { ConvertedDate } from "../../App/Helper/Helpers";
 import { useForm } from 'react-hook-form'; 
+import './Review.scss'
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 export const Review = () => {
     const [ reviewData, setReviewData ] = useState();
@@ -16,7 +18,7 @@ export const Review = () => {
                 const response = await axios.get(`https://api.mediehuset.net/detutroligeteater/reviews?event_id=${event_id}`)
                 if(response.data){
                     setReviewData(response.data.items)
-                    console.log(response);
+                    // console.log(response);
         
                 } else{
                     console.log('No comment');
@@ -29,23 +31,30 @@ export const Review = () => {
     }, [event_id])
     
     return(
-        <section>
+        <>
+        <section id="ReviewSection">
             <h2>ANMELDELSER</h2>
+            <div id="ReviewWrapper">
         {reviewData && reviewData.map(comment => {
-            console.log(comment);
+            // console.log(comment);
             return(
                 <article key={comment.id}>
-                    <p>{comment.num_stars} stjerner</p>
-                    <p>{ConvertedDate(comment.created, true)}</p>
-                    <p><strong>{comment.user.firstname} {comment.user.lastname}</strong></p>
+                    <NumStars num_stars={comment.num_stars}/>
+                    <h5>{ConvertedDate(comment.created, true)}</h5>
+                    <h3>{comment.user.firstname} {comment.user.lastname}</h3>
                     <p className="highlightColor">{comment.comment}</p>
                 </article>    
             )
         })}
-        <PostReview id={event_id} />
-        </section>
+            </div>    
+            </section>
+            <section id="FormWrapper">
+            <PostReview id={event_id} />
+            </section>
+        </>
     )
 }
+
 
 export const PostReview = ( props ) => {
     const { loginData } = useAuth();
@@ -78,7 +87,14 @@ export const PostReview = ( props ) => {
         <>
         <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
-                <legend>Kommentar</legend>
+                <h2 id="ReviewH2">Skriv en anmeldelse</h2>
+                <div className="CommentDiv">
+                    <label htmlFor="num_stars"><h3>Antal stjerner:</h3> <AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /></label>< br/>
+                    <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5 })}></input>
+                    {errors.num_stars && (
+                        <><br /><span>Du skal angive 1-5 stjerner!</span></>
+                        )}
+                </div>
                 <div className="CommentDiv">
                     <input type="text" id="subject" placeholder="Indtast en titel" {...register('subject', { required: true, maxLength: 200 })} />
                     {errors.subject && (
@@ -91,17 +107,34 @@ export const PostReview = ( props ) => {
                         <><br /><span>Du skal skrive en kommentar!</span></>
                         )}
                 </div>
-                <div className="CommentDiv">
-                    <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5 })}></input>
-                    {errors.num_stars && (
-                        <><br /><span>Du skal angive 1-5 stjerner!</span></>
-                        )}
-                </div>
                 <div className="CommentDivButtons">
                     <button>Send</button>
                 </div>
             </fieldset>
         </form>
         </>
+    )
+}
+
+export const NumStars = (props) => {
+    const [ numStars, setNumStars ] = useState(new Array(5).fill(''));
+    
+
+    
+    return(
+        <div className="StarWrapper">
+            {numStars && numStars.map((star, i) => {
+                return(
+                    <React.Fragment key={i}>
+                    {i > props.num_stars - 1 ? 
+                    (<>
+                      <AiOutlineStar className="OutLineStar" />  
+                    </>) 
+                    : <AiFillStar className="FillStar" />}
+                    </React.Fragment>
+                    
+                )
+            })}
+        </div>
     )
 }
