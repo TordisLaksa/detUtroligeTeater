@@ -14,7 +14,7 @@
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr;
         border: 1px solid $highlightOne;
-        padding: 1%;
+        padding-right: 1%;
         margin-bottom: .5%;
         figure{
            display: grid;
@@ -22,6 +22,7 @@
 
             img{
                 @include ImgScaleDown;
+
             }
             figcaption{
                 padding-left: 5%;
