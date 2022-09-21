@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { Layout } from "../../App/Layout/Layout";
+import './Actors.scss'
 
 export const Actors = () => {
     const location = useLocation();
@@ -22,7 +23,7 @@ export const Actors = () => {
     }, [])
     
     return(
-        <section>
+        <section id="Actors">
             <Layout title='Skuespillere'>
                 {actorData && actorData.map(actor => {
                     // console.log(actor);

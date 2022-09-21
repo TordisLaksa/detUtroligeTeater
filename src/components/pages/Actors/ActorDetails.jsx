@@ -30,7 +30,7 @@ export const ActorDetails = () => {
                         <figcaption>
                             <article>
                                 <h2>{actorData.name}</h2>
-                                <p>{actorData.description}</p>
+                                <p className="nl2br">{actorData.description}</p>
                             </article>
                             <button><Link to={'/actors'}>ALLE SKUESPILLERE</Link></button>
                         </figcaption>
