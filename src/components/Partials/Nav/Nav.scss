@@ -18,8 +18,18 @@ nav {
         margin-block: auto;
         
         li{
-            padding-left: 5%;
-
+            padding-left: 7%;
+            
+            a{
+                font-size: 1.5rem;
+                color: #707070;
+                &:focus{
+                    color: $highlightOne;
+                }
+                &:hover{
+                    color: $highlightOne;
+                }
+            }
         }
     }
 }
