@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
+import { Actors } from '../../pages/Actors/Actors';
+import { ActorDetails } from '../../pages/Actors/ActorDetails';
 import { EventDetails } from '../../pages/Events/EventDetails';
 import { EventList } from '../../pages/Events/Events';
 // import { Review } from '../../pages/Events/Review';
@@ -18,6 +20,10 @@ export const AppRouter = () => {
                 <Route path=':event_id' element={<EventDetails />} />
             </Route>
             <Route path='/login' element={<Login />}></Route>
+            <Route path='/actors'>
+                <Route index element={<Actors />} />
+                <Route path=':actor_id' element={<ActorDetails />} />    
+            </Route> 
             <Route path='/edit/:id' element={<Edit />} />
             <Route path='/tickets/:event_id' element={<Ticket />} />
             <Route path='*' element={<NoPage />} />

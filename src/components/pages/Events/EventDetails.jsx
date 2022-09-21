@@ -69,8 +69,9 @@ export const EventDetails = () => {
                     <h3>MEDVIRKENDE</h3>
                         <div className="EventActorsWrapper">   
                     {eventDetail.actors && eventDetail.actors.map((actor, i) => {
+                        console.log(actor);
                         return(
-                            <Link key={i} to={'/actors'} state={{actorData: actor}}>
+                            <Link key={i} to={`/actors/${actor.id}`}>
                             <figure>
                                 <img src={actor.image} alt={actor.name} />
                                 <figcaption>

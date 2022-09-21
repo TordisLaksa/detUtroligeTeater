@@ -79,19 +79,7 @@ const SeatSelector = () => {
         
     }, [event_id])
     
-    // const OnClick = () => {
-    //     let checked = document.querySelectorAll('.seat');
-    //     let max = 2;
-    //     for(let i = 0; i< checked.length; i++){
-    //         checked[i].onClick = SelectiveCheck;
-    //     }
-    //     const SelectiveCheck = (e) => {
-    //         let checkedChecks = document.querySelectorAll('.seat:checked')
-    //         if(checkedChecks.length >= max + 1) {
-    //             return false;
-    //         }
-    //     }
-    // }
+//log min formData når jeg sender
 
 return(
     <section id="SeatSeaction">
@@ -102,8 +90,8 @@ return(
                     {seatData && seatData.map(seat => {
                         if(seat.line == line) {
                             return(
-                                <label key={seat.id}>
-                                <input className={`seat${seat.line}`} type='checkbox'/>
+                                <label key={seat.id}>{seat.number}
+                                <input className={`seat${seat.number}`} type='checkbox' name="seats[]" value={seat.id}/>
                                 </label>
                             )
                         }
