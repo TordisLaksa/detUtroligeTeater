@@ -21,12 +21,12 @@ export const Footer = () => {
                     <article>
                         <h2>BILLETSERVICE</h2>
                         <p>Se åbningstider</p>
-                        <a href='tel:96-31-80-80'>Billettelefon: +45 96 31 80 80</a> <br />
+                        <a href='tel:96-31-80-80'>Billettelefon: +45 96 31 80 80</a>
                         <a href='mailto:billet@dut.dk'>billet @dut.dk</a>
                     </article>
                     <article>
                         <h2>ADMINISTRATION</h2>
-                        <a href='tel:96-31-80-90'>Telefon: +45 96 31 80 90</a> <br />
+                        <a href='tel:96-31-80-90'>Telefon: +45 96 31 80 90</a>
                         <a href='mailto:adm@dut.dk'>adm@dut.dk</a>
                     </article>
                 </div>

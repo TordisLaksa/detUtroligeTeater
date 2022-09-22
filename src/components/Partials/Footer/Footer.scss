@@ -1,4 +1,5 @@
 @import '../../../Assets/SCSS/bundle.scss';
+
 footer{
     display: grid;
     grid-template-columns: 2fr .5fr;
@@ -18,7 +19,9 @@ footer{
                 font-size: 1.2rem;
             }
             a{
+                display: inline-block;
                 color: white;
+                font-size: 1.2rem;
             }
         }
     }
@@ -30,6 +33,65 @@ footer{
             padding: 1%;
             img{
                 width: 100%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $large) {
+    footer{
+        #footerDivider{
+            article{
+                h2{
+                    font-size: 1.7rem;
+                }
+            }
+            div{
+                margin-left: -10%;
+                article{
+                    padding-bottom: 3%;
+                }
+            }
+        }
+        #media{
+            margin-left: -50%;
+        }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  footer{   
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 5%;
+    #footerDivider{
+        margin-left: 2%;
+    }
+    #media{
+        a{
+            width: 10%;
+            img{
+                width: 80%;
+            }
+            margin-left: -2.5%;
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    footer{
+        padding-bottom: 15%;
+        #footerDivider{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3%;
+            div{
+                margin: 0;
+            }
+        }
+        #media{
+            a{
+                width: 12%;
             }
         }
     }

@@ -1,3 +1,5 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
 .burgerMenu {
     @media (width > 1299px) {
         display: none;
@@ -5,10 +7,11 @@
 
     position: absolute;
     top: 0;
-    left: 94vw;
+    left: 91vw;
     height: 1vw;
     width: 5vw;
     z-index: 5;
+
 
     //gemmer x når menuen ikke er åben
     .burgerMenuClose {
@@ -26,13 +29,12 @@
 }
 
 .burgerMenuActive {
-    // background-color: red;
     position: absolute;
-    //MÅSKE DEN HER
     left: 94vw;
     width: 4vw;
     height: 5vw;
     right: 1.8vw;
+
 
     .burgerMenuHome {
         display: none;
@@ -71,9 +73,117 @@
         padding-inline: 2vw;
 
         .navigationLinks {
-            // color: $background;
             font-size: 1rem;
             text-decoration: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: $large) {
+    header {
+        margin-bottom: 9%;
+        .burgerMenu {
+            left: 94vw;
+            top: .7vw;
+            
+            .burgerMenuHome {
+                height: 4.5vw;
+                width: 3vw;
+                color: $highlightOne;
+            }
+        }
+        
+        .burgerMenuActive {
+            height: 4.5vw;
+            width: 4.5vw;
+            left: 94vw;
+            top: 0;
+            .burgerMenuClose {
+                width: 3vw;
+                height: 5vw;
+                color: $highlightOne;
+            }
+        }
+        
+        .activeMenu {
+            height: 4.5vw;
+            margin-top: -.5%;
+            li{
+                .navigationLinks{
+                    font-size: 1.5rem;
+                    color: $highlightTwo;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    header {
+        .burgerMenu {
+            left: 91vw;
+            top: 1vw;
+            
+            .burgerMenuHome {
+                // background-color: red;
+                height: 4.5vw;
+                width: 4vw;
+            }
+        }
+
+        .burgerMenuActive {
+            height: 5vw;
+            width: 4.5vw;
+            left: 91vw;
+            
+            .burgerMenuClose {
+                width: 3.5vw;
+            }
+        }
+        
+        .activeMenu {
+            height: 5vw;
+            left: -7vw;
+            li{
+                .navigationLinks{
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    header {
+        margin-bottom: 15%;
+        .burgerMenu {
+            left: 89vw;
+            top: .5vw;
+            
+            .burgerMenuHome {
+                padding-bottom: 1vw;
+                height: 7vw;
+                width: 4.5vw;
+            }
+        }
+        
+        .burgerMenuActive {
+            height: 7vw;
+            width: 4.5vw;
+            left: 89vw;
+            
+            .burgerMenuClose {
+                top: .5vw;
+                width: 4.5vw;
+            }
+        }
+        .activeMenu{
+            li{
+                .navigationLinks{
+                    font-size: 1rem;
+                }
+            }
         }
     }
 }
