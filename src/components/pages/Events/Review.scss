@@ -39,7 +39,7 @@
     margin-bottom: 4%;
     color: white;
     position: relative;
-    form{
+    #PostReviewForm{
         font-family: $font-family;
         border: 0;
         fieldset{
@@ -98,6 +98,160 @@
                     color: white;
                     &:hover{
                         background-color: #f8bd73;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      #ReviewSection{
+        margin-top: -5%;
+        padding-bottom: 5%;
+      }
+      #FormWrapper{
+        #PostReviewForm{
+            fieldset{
+                .CommentDiv{
+                    width: 90%;
+                    &:first-of-type{
+                        label{
+                            svg{
+                                width: 2vw;
+                                height: 2vw;
+                            }
+                        }
+                    }
+                }
+                .CommentDivButtons{
+                    button{
+                        width: 13%;
+                        left: 83%;
+                    }
+                }
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #ReviewSection{
+        h2{
+            padding-block: 3%;
+        }
+        #ReviewWrapper{
+            article{
+                .StarWrapper{
+                    svg{
+                       width: 3vw;
+                       height: 3vw; 
+                    }
+                }
+                h3{
+                    font-size: 2rem;
+                }
+                .highlightColor{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    #FormWrapper{
+        #PostReviewForm{
+            fieldset{
+                .CommentDiv{
+                    width: 85%;
+                    &:first-of-type{
+                        label{
+                            svg{
+                                width: 3vw;
+                                height: 3vw;
+                            }
+                        }
+                    }
+                    input{
+                        margin-bottom: 2%;
+                    }
+                }
+                .CommentDivButtons{
+                    margin-top: 1%;
+                    button{
+                        width: 16%;
+                        left: 80%;
+                    }
+                }
+            }
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #ReviewSection{
+            #ReviewWrapper{
+                article{
+                    .StarWrapper{
+                        svg{
+                            width: 5vw;
+                            height: 5vw;
+                        }
+                    }
+                    h3{
+                        font-size: 1.7rem;
+                    }
+                    .highlightColor{
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+        #FormWrapper{
+            margin-bottom: 0;
+            #PostReviewForm{
+                padding-bottom: 13%;
+                fieldset{
+                    padding: 3%;
+                    padding-left: 7%;
+                    #ReviewH2{
+                        font-size: 1.8rem;
+                    }
+                    .CommentDiv{
+                        margin-bottom: 2%;
+                        width: 105%;
+                        &:first-of-type{
+                            label{
+                                svg{
+                                    width: 4.5vw;
+                                    height: 4.5vw;
+                                }
+                            }
+                        }
+                        input{
+                            font-size: 1.2rem;
+                        }
+                        textarea{
+                            font-size: 1.2rem;
+                            height: 15vw;
+                        }
+                    }
+                    .CommentDivButtons{
+                        button{
+                            left: 7%;
+                            bottom: 8%;
+                            width: 85%;
+                            padding-block: 1.5%;
+                        }
                     }
                 }
             }

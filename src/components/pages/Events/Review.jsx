@@ -85,7 +85,7 @@ export const PostReview = ( props ) => {
     }
     return(
         <>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form id="PostReviewForm" onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
                 <h2 id="ReviewH2">Skriv en anmeldelse</h2>
                 <div className="CommentDiv">
