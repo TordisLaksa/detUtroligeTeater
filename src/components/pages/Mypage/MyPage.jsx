@@ -8,12 +8,16 @@ import { MdModeEdit } from "react-icons/md";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { useForm } from 'react-hook-form'
 import { NumStars } from "../Events/Review"
+import './MyPage.scss'
 
 export const MyPage = () => {
     return(
+        <div id="MyPageWrapper">
         <Layout title='Min side'>
             <MyReviews />
         </Layout>
+        </div>
+
     )
 }
 
@@ -42,7 +46,7 @@ const MyReviews = () => {
 
     return(
         <section id="ReviewPanelSection">
-            <h2>Anmeldelser</h2>
+            <h2>Mine anmeldelser</h2>
             <table>
                 <tbody>
                     <tr>
@@ -51,7 +55,6 @@ const MyReviews = () => {
                         <th>Antal stjerner</th>
                         <th>Rediger</th>
                     </tr>
-                    <tr><td><hr /></td></tr>
                 {myReviewData && myReviewData.map((review, i) => {
              
                     if (review.user_id == loginData.user_id) {
@@ -62,7 +65,7 @@ const MyReviews = () => {
                                     <td>{review.subject}</td>
                                     <td><NumStars num_stars={review.num_stars}/></td>
                                     <td>
-                                        <Link to={`/edit/${review.id}`} state={{ commentData: review }}><MdModeEdit /></Link>
+                                        <Link to={`/edit/${review.id}`} state={{ commentData: review }}><MdModeEdit className="edit"/></Link>
                                         <Delete id={review.id}/> 
                                     </td>
                                 </tr>
@@ -171,6 +174,6 @@ const Delete = ( props ) => {
     }
     
     return (
-        <IoCloseCircleOutline onClick={onSubmit}/>
+        <IoCloseCircleOutline className="delete" onClick={onSubmit}/>
     )
 }
