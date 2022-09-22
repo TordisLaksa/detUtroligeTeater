@@ -55,3 +55,70 @@
         }
     }
 }
+
+
+@media screen and (max-width: $large) {
+    body{
+      #ActorDetailSection{
+        padding-bottom: 5%;
+        #detailWrapper{
+            figure{
+                grid-template-columns: 1fr;
+                img{
+                    margin: auto;
+                    width: 50%;
+                }
+                figcaption{
+                    article{
+                        h2{
+                            text-align: center;
+                            padding-block: 2%;
+                        }
+                    }
+                }
+            }
+        }
+        #ActorDetailButton{
+            bottom: -2%;
+            width: 35%;
+            left: 65%;
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #ActorDetailSection{
+        #detailWrapper{
+            figure{
+                img{
+                    width: 70%;
+                }
+            }
+        }
+        #ActorDetailButton {
+            bottom: -1%;
+            width: 45%;
+            left: 55%;
+        }
+    }    
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #ActorDetailSection{
+            padding-bottom: 20%;
+            #detailWrapper{
+                figure{
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            #ActorDetailButton{
+                bottom: 0;
+            }
+            
+        }
+    }
+}
