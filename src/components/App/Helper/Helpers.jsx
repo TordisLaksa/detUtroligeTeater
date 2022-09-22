@@ -28,6 +28,7 @@ export const StrConverter = (str) => {
     return Str.substring(0, 150);
 }
 
+
 export const DescriptionConverter = (str) => {
     const Str = String(str);
     return Str.substring(0, 350);

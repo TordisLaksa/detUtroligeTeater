@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../App/Auth/Auth";
-
+import { PriceToDK } from "../../App/Helper/Helpers";
 import './Form.scss'
-// import { SeatSelector } from './SeatSelector'
 
-export const Form = ( ) => {
+export const Form = ( props ) => {
     const { event_id } = useParams();
     const { loginData } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm();        
@@ -18,20 +17,29 @@ export const Form = ( ) => {
     //så er det blevet fyld med en værdi der bør kunne dække alle tilfælde.
     const [checked, setChecked] = useState(new Array(100).fill(false)) /*(new Array(24).fill(false));*/
     const [selectedOnly, setSelectedOnly] = useState([]);
+    
+    const [ numTickets, setNumTickets ] = useState(0);
+    const [ checkedSeats, setCheckedSeats ] = useState(false)
 
-    let limit = 2;
-
+    
     const handleOnChange = (position) => {
+        let limit = document.getElementById('limit').value;
         const updatedCheckedState = checked.map((item, index) =>
             index === position ? !item : item);
-        // spørger efter om der er en værdi i 
-        if (updatedCheckedState.filter(v => v).length >= limit + 1) {
-            return
-        }
+            // spørger efter om der er en værdi i 
+            if (updatedCheckedState.filter(v => v).length > limit) {
+                return
+            }
+            if(updatedCheckedState.filter(v => v).length == limit){
+                setCheckedSeats(true)
+            } else{
+                setCheckedSeats(false)
+            }
         setChecked(updatedCheckedState);
     };
 
     const handleClick = (id) => {
+        let limit = document.getElementById('limit').value;
         if (selectedOnly.length < limit) {
             if (!selectedOnly.includes(id)) {
                 let tempArr = selectedOnly;
@@ -64,7 +72,6 @@ export const Form = ( ) => {
                 for (let i = 0; i < response.data.items[response.data.items.length - 1].line; i++) {
                     temporaryArr.push(i + 1)
                 }
-                console.log(response.data.items);
                 setLineData(temporaryArr);
             }
         }
@@ -73,23 +80,26 @@ export const Form = ( ) => {
     }, [event_id])
     
     const onSubmit = async (data) => {
-        const options = {
-            headers: {
-                Authorization: `Bearer ${loginData.access_token}`,
+        console.log(checkedSeats);
+        if(checkedSeats){
+            
+            const options = {
+                headers: {
+                    Authorization: `Bearer ${loginData.access_token}`,
+                }
             }
-        }
-        const formData = new FormData();
-        
-        formData.append('event_id', event_id);
-        formData.append('firstname', data.firstname);
-        formData.append('lastname', data.lastname);
-        formData.append('address', data.address);
-        formData.append('zipcode', data.zipcode);
-        formData.append('city', data.city);
-        formData.append('email', data.email);
+            const formData = new FormData();
+            
+            formData.append('event_id', event_id);
+            formData.append('firstname', data.firstname);
+            formData.append('lastname', data.lastname);
+            formData.append('address', data.address);
+            formData.append('zipcode', data.zipcode);
+            formData.append('city', data.city);
+            formData.append('email', data.email);
         for (let i = 0; i < selectedOnly.length; i++) {
             formData.append('seats[]', selectedOnly[i]);
-
+            
         }
         try {
             const result = await axios.post(`https://api.mediehuset.net/detutroligeteater/reservations`, formData, options);
@@ -100,9 +110,12 @@ export const Form = ( ) => {
             console.log('Nay')
         }
     }
-    
+    }
+    const NumTicketChange = event =>{
+        setNumTickets(event.target.value)
+    }
     return(
-    <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
             <div>
                 <label htmlFor="firstname">Fornavn </label>
@@ -143,7 +156,16 @@ export const Form = ( ) => {
                         <span>Udfyld venligst din email!</span>
                     )}
             </div>
+            <div>
+                <label htmlFor="limit">Antal</label>
+                <input type="number" id="limit"  onClick={NumTicketChange} {...register('limit', { required: true, min: 1 })}/>
+                <div>
+                    <h3>Pris: {PriceToDK(props.price * numTickets)}kr.</h3>
+                    <p>PRIS INKL. MOMS</p>
+                </div>
+            </div>
             {/* ---------------------------------------------------------- */}
+                {!checkedSeats ? <span>{`Du skal vælge ${numTickets} sæder`}</span> : null}
                 <section id="SeatSeaction">
                     {lineData && lineData.map(line => {
                         return (
@@ -153,7 +175,6 @@ export const Form = ( ) => {
                                     if (seat.line == line) {
                                         return (
                                             <label key={seat.id}>{seat.id}
-                                                {/* <input className={`seat${seat.number}`} type='checkbox' name="seats[]" value={seat.id}/>  */}
                                                 <input
                                                     className={`seat${seat.number} reserved${seat.is_reserved}`}
                                                     onChange={() => handleOnChange(index)}
