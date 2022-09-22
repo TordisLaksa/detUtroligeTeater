@@ -152,3 +152,188 @@
         }
     }
 }
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      #HeroSection{
+        figure{
+            @include Grid2;
+            figcaption{
+                padding: 3%;
+                margin: 0;
+                article{
+                    &:first-of-type{
+                        padding-top: 0;
+                        
+                    }
+                }
+            }
+            img{
+                @include ImgScaleDown;
+                margin: 0;
+            }
+        }
+      }
+      #CardSection{
+          figure{
+            margin-bottom: 25%;
+            figcaption{
+                article{
+                    h4{
+                        font-size: 1.7rem;
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    .Det{
+        font-size: 3rem;
+        margin-bottom: 5%;
+    }
+    #HeroSection{
+        width: 103%;
+        margin-left: -1.5%;
+        figure{
+                border: 4px solid $primaryColor;
+            figcaption{
+                padding: 0;
+                article{
+                    &:first-of-type{
+                        padding-top: 1%;
+                        p{
+                            font-size: 1.5rem;
+                        }
+                        h4{
+                            font-size: 1.7rem;
+
+                        }
+                    }
+                    &:last-of-type{ 
+                        padding-bottom: 0;
+                        h2{
+                            font-size: 3rem;
+                        } 
+                        h3{
+                            font-size: 2.5rem;
+                        } 
+                    }
+                }
+            }
+            img{
+                border: 5px solid $primaryColor;
+            }
+        }
+    }
+    #CardSection{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 70%;
+        margin: auto;
+        figure{
+            border: 4px solid $primaryColor;
+            margin-bottom: 0;
+            padding-bottom: 13%;
+            &:last-of-type{
+                margin-bottom: 35%;
+            }
+            img{
+                height: 40vw;
+                border: 0;
+                border-bottom: 4px solid $primaryColor;
+            }
+            figcaption{
+                article{
+                    &:first-of-type{
+                        p{
+                            font-size: 1.8rem;
+                        }
+                        h4{
+                            font-size: 2rem;
+                        }
+                    }
+                    &:last-of-type{
+                        div{
+                            margin-top: 3%;
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                        
+                            button{
+                                padding-block: 2%;
+                                width: 20%;
+                                &:first-of-type{
+                                    margin-right: -2%;
+                                }
+                                &:last-of-type{
+                                    margin-right: 8.5%;
+                                }
+                                a{
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #showAll{
+            left: 10%;
+            bottom: 1.5%;
+            width: 80%;
+            padding: 1.5%;
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #HeroSection{
+            figure{
+                display: grid;
+                grid-template-columns: 1fr; 
+            }
+        }
+        #CardSection{
+            figure{
+                padding-bottom: 35%;
+                &:last-of-type{
+                    margin-bottom: 60%;
+                }
+                figcaption{
+                    article{
+                        &:last-of-type{
+                            h2{
+                                margin: 0;
+                                font-size: 2.7rem;
+                            }
+                            div{
+                                padding-top: 2%;
+                                display: flex;
+                                flex-direction: column;
+                               button{
+                                width: 90%;
+                                margin-bottom: 3%;
+                               } 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
