@@ -107,3 +107,151 @@
         }
    }
 }
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+        #DetailWrapper{
+            #figureHero{
+                #heroCaption{
+                    .detailDivider{
+                        grid-template-columns: 2.5fr 1fr;
+                        gap: 0;
+                        div{
+                           p{
+                            font-size: 1.3rem;
+                           } 
+                        }
+                        .moveRight{
+                            padding-left: 0%;
+                            margin-left: -2%;
+                            margin-top: 12%;
+                        }
+                    }
+                }
+            }
+            #detailSection{
+                margin-bottom: 5%;
+                #specificEvent{
+                    button{
+                        margin-top: 1.5%;
+                        width: 20%;
+                    }
+                }
+                #EventActors{
+                    
+                    .EventActorsWrapper{
+                        grid-template-columns: repeat(4, 1fr);
+                        margin-bottom: 5%;
+                        a{
+                            figure{
+                                margin-bottom: 25%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: $tablet) {
+  body{
+    #DetailWrapper{
+        #figureHero{
+            img{
+                width: 100%;
+            }
+            #heroCaption{
+                margin-top: 0;
+                .detailDivider{
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20%;
+                }
+            }
+        }
+        #detailSection{
+            padding-bottom: 10%;
+            #specificEvent{
+                button{
+                    width: 30%;
+                }
+            }
+            #EventActors{
+                .EventActorsWrapper{
+                    grid-template-columns: repeat(3, 1fr);
+                    a{
+                        figure{
+                            margin-bottom: 20%;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #DetailWrapper{
+            #figureHero{
+                #heroCaption{
+                    .detailDivider{
+                        margin-bottom: 10%;
+                        @include Grid1;
+                        h3{
+                            font-size: 1.7rem;
+                        }
+                        .moveRight{
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            #detailSection{
+                #specificEvent{
+                    @include Grid1;
+                    button{
+                        width: 50%;
+                        height: fit-content;
+                        padding: 2%;
+    
+                    }
+                }
+                #EventActors{
+                    margin-bottom: 10%;
+                    h3{
+                        text-align: center;
+                    }
+                    .EventActorsWrapper{
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 3%;
+                        padding: 3%;
+                        padding-bottom: 30%;
+                        
+                        a{
+                            figure{
+                                width: 90%;
+                                margin: auto;
+                                figcaption{
+                                    h4{
+                                        font-weight: 400;
+                                        font-size: 1rem;
+                                        margin-left: -2%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
