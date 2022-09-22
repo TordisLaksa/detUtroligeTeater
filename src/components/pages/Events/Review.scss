@@ -105,14 +105,6 @@
     }
 }
 
-
-//BREAKPOINTS
-$x-large: 1300px;
-$large: 1300px;
-$tablet: 980px;
-$mobile: 580px;
-
-
 @media screen and (max-width: $large) {
     body{
       #ReviewSection{
