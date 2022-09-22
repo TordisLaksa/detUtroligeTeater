@@ -1,0 +1,94 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#LoginForm{
+    width: 50%;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    #formDivider{
+        
+        div{
+            margin-bottom: 3%;
+            input{
+                border: 1px solid $primaryColor;
+                width: 90%;
+                padding: 1%;
+                padding-block: 1.5%;
+                font-size: 1.2rem;
+                &::placeholder{
+                    padding: 2%;
+                    color: $highlightOne;
+                }
+            }
+        }
+    }
+    #FormButtonDiv{
+        
+        button{
+            margin-top: 13%;
+            border: 0;
+            width: 80%;
+            padding: 1%;
+            padding-block: 1.5%;
+            background-color: $secondaryColor;
+            color: white;
+            font-size: 1.2rem;
+            &:hover{
+            background-color: $highlightTwo;
+            }
+        }
+    }
+}
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      #LoginForm{
+        width: 60%;
+        #formDivider{
+            div{
+                input{
+                    width: 90%;
+                }
+            }
+        }
+        #FormButtonDiv{
+            button{
+                margin-top: 15%;
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #LoginForm{
+        width: 80%;
+    }     
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+    #LoginForm{
+        grid-template-columns: 1fr;
+        #formDivider{
+            margin-top: 3%;
+        }
+        #FormButtonDiv{
+            margin-top: -5%;
+            margin-bottom: 10%;
+            button{
+                width: 90%;
+            }
+        }
+    } 
+    }
+}

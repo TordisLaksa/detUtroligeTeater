@@ -107,6 +107,17 @@
         }
    }
 }
+#ReviewLogin {
+    background-color: $primaryColor;
+    border-top: 1px solid $primaryColor;
+    h4{
+        color: white;
+        padding-inline: 3%;
+        margin-top: 5%;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
 
 
 //BREAKPOINTS
@@ -159,6 +170,13 @@ $mobile: 580px;
                 }
             }
         }
+        #ReviewLogin{
+            margin-top: -5%;
+            h4{
+                font-size: 1.7rem;
+                font-weight: 300;
+            }
+        }
     }
 }
 @media screen and (max-width: $tablet) {
@@ -196,6 +214,7 @@ $mobile: 580px;
         }
         
     }
+    
   }
 }
 @media screen and (max-width: $mobile){
@@ -253,5 +272,11 @@ $mobile: 580px;
                 }
             }
         }
+        #ReviewLogin {
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+    }
     }
 }

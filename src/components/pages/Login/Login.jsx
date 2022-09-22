@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../../App/Auth/Auth";
 import { MyPage } from "../Mypage/MyPage";
+import './Login.scss'
 
 export const Login = () => {
     //useForm
@@ -56,25 +57,25 @@ export const Login = () => {
         {!loginData ? (
             // handleSubmit(sendLoginRequest)...
             //Closure betyder at vi kan tilgå en functions ydre scope fra en indre function
-            <form onSubmit={handleSubmit(sendLoginRequest)}>
-                <div>
-                    <label htmlFor="username"> Brugernavn: </label>
-                    <input type="text" id="username" placeholder="Indtast dit brugernavn" 
-                    //registrer feltet username (kan også være hest)
-                        {...register("username", { required: true })} />
-                        {errors.username && (
-                            <span>Udfyld venligst dit brugernavn!</span>
-                        )}
+            <form id="LoginForm" onSubmit={handleSubmit(sendLoginRequest)}>
+                <div id="formDivider">
+                    <div>
+                        <input type="text" id="username" placeholder="Indtast dit brugernavn" 
+                        //registrer feltet username (kan også være hest)
+                            {...register("username", { required: true })} />
+                            {errors.username && (
+                                <span>Udfyld venligst dit brugernavn!</span>
+                            )}
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="Indtast din adgangskode"
+                            {...register("password", { required: true })} />
+                            {errors.password && (
+                                <span>Udfyld venligst din adgangskode!</span>
+                            )}
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="password">Adgangskode: </label>
-                    <input type="password" id="password" placeholder="Indtast din adgangskode"
-                        {...register("password", { required: true })} />
-                        {errors.password && (
-                            <span>Udfyld venligst din adgangskode!</span>
-                        )}
-                </div>
-                <div>
+                <div id="FormButtonDiv">
                     <button>Login</button>
                 </div>
             </form>
