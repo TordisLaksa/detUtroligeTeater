@@ -14,9 +14,40 @@
 }
 #ResultWrapper{
     margin-bottom: 2%;
-    article{
+    #headerArticle{
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        
+        gap: 4%;
+        border-bottom: 1px solid #20202020;
+        padding-bottom: 1%;
+        margin-bottom: 1%;
+        h4{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    }
+    a{
+        .infoArticle{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4%;
+            padding-bottom: 1%;
+            border-bottom: 1px solid #20202020;
+            p{
+                text-align: left;
+                margin-left: 35%;
+                padding-bottom: 1%;
+                &:first-of-type{
+                    margin-left: 2%;
+                }
+                &:nth-of-type(2){
+                    margin-left: 30%;
+                }
+                &:last-of-type{
+                    margin-left: 40%;
+                }
+            }
+        }
     }
 }

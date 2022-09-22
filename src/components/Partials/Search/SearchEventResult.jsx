@@ -34,7 +34,7 @@ export const SearchEventResult = () => {
             <>
             <h2 id="Results">Søgeresultater</h2>
             <section id="ResultWrapper">
-            <article>
+            <article id="headerArticle">
                 <h4>Dato</h4>
                 <h4>Event</h4>
                 <h4>Genre</h4>
@@ -45,7 +45,7 @@ export const SearchEventResult = () => {
             {searchEventResult && searchEventResult.map(event => {
                 return(
                     <Link key={event.id} to={`/events/${event.id}`}>
-                        <article>
+                        <article className="infoArticle">
                             <p>{ConvertedDate(event.startdate, false)} - {ConvertedDate(event.stopdate, false)}</p>
                             <p>{event.title}</p>
                             <p>{event.genre}</p>
