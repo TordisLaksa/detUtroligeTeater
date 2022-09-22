@@ -12,43 +12,46 @@
     margin-bottom: 2%;
     .mainArticle{
         display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
         border: 1px solid $highlightOne;
         padding-right: 1%;
         margin-bottom: .5%;
-        figure{
-           display: grid;
-           grid-template-columns: .5fr 2fr;
-
-            img{
-                @include ImgScaleDown;
-
+        .testWrapper{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            figure{
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 2%;
+                img{
+                    // @include ImgScaleDown;
+                    width: 80%;
+                }
+                figcaption{
+                    margin-block: auto;
+                    h2{
+                        margin-left: -5%;
+                        color: $highlightOne;
+                        font-size: 2.3rem;
+                        font-weight: 500;
+                    }
+                }
             }
-            figcaption{
-                padding-left: 5%;
-                width: fit-content;
+            .eventStageDate{
+                border-left: 2px solid #77889930;
+                padding-left: 8%;
+                margin-left: -30%;
                 margin-block: auto;
-                h2{
-                    color: $highlightOne;
-                    font-size: 2.3rem;
-                    font-weight: 500;
+                p{
+                    font-size: 1.3rem;
+                    font-weight: 300;
+                }
+                h3{
+                    font-size: 1.5rem;
                 }
             }
         }
-        .eventStageDate{
-            border-left: 2px solid #77889930;
-            margin-left: -30%;
-            padding-left: 8%;
-            margin-block: auto;
-            p{
-                font-size: 1.3rem;
-                font-weight: 300;
-            }
-            h3{
-                font-size: 1.5rem;
-            }
-        }
-        .eventButtons{
+            .eventButtons{
             display: flex;
             margin-block: auto;
             margin-left: 20%;
@@ -78,4 +81,110 @@
             }
         }
     }
+}
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      #EventListSection{
+        .mainArticle{
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 10%;
+            .eventButtons{
+                position: absolute;
+                width: 50%;
+                left: 30%;
+                bottom: -70%;
+                button{
+                    margin-bottom: 3%;
+                }
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #EventListSection{
+        .mainArticle{
+            margin-bottom: 10%;
+            .testWrapper{
+                grid-template-columns: 1fr 1fr;
+                figure{
+                    figcaption{
+                        h2{
+                            margin-left: -9%;
+                            font-size: 1.8rem;
+                        }
+                    }
+                }
+                .eventStageDate{
+                    margin: 0;
+                    margin-block: auto;
+                    h3{
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            .eventButtons{
+                bottom: -100%;
+            }
+        }
+    }    
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        .Oversigt{
+            text-align: left;
+            padding-block: 5%;
+        }
+        #EventListSection{
+            .mainArticle{
+                padding:0;
+                padding-bottom: 5%;
+                display: grid;
+                @include Grid1;   
+                .testWrapper{
+                    @include Grid1;
+                    figure{
+                        @include Grid1;
+                        img{
+                            width: 100%;
+                        }
+                        figcaption{
+                            padding: 1%;
+                            text-align: center;
+                            h2{
+                                margin: 0;
+                                padding: 0;
+                                
+                            }
+                        }
+                    }
+                    .eventStageDate{
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;
+                        
+                    }
+                }
+                .eventButtons{
+                    position: unset;
+                    margin: auto;
+                    margin-top: 10%;
+                    width: 80%;
+                }
+            }
+        }
+        }
 }

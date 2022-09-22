@@ -32,6 +32,7 @@ export const EventList = () => {
                     // console.log(event);
                     return(
                         <article key={event.id} className='mainArticle'>
+                            <div className='testWrapper'>
                             <figure>
                                 <img src={event.image} alt={event.title} />
                                 <figcaption><h2>{event.title}</h2></figcaption>
@@ -41,6 +42,8 @@ export const EventList = () => {
                                 {/* ConvertedDate kommer fra min helper */}
                                 <h3>{ConvertedDate(event.startdate, false)} - {ConvertedDate(event.stopdate, true )}</h3>
                             </article>
+                            </div>
+                            
                             <article className='eventButtons'>
                                 <button className='blue'><Link to={`${event.id}`}>LÆS MERE</Link></button>
                                 <button className='yellow'><Link to={`/tickets/${event.id}`}>KØB BILLET</Link></button>
