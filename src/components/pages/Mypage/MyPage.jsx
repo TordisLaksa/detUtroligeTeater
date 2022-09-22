@@ -41,7 +41,7 @@ const MyReviews = () => {
     
 
     return(
-        <section>
+        <section id="ReviewPanelSection">
             <h2>Anmeldelser</h2>
             <table>
                 <tbody>

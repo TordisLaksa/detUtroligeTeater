@@ -80,11 +80,13 @@ export const Login = () => {
                 </div>
             </form>
         ) :
-            <div>
+            <>
+            <section id="LoggedInPanel">
                 <p>Du er logget ind som <i>{loginData.username}</i></p>
                 <button onClick={logOut}>Log ud</button>
-                <MyPage />
-            </div>
+            </section>
+            <MyPage />
+            </>
         }
         </>
     )            

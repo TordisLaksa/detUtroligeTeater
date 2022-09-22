@@ -6,19 +6,13 @@ import { Layout } from "../../App/Layout/Layout";
 import './Actors.scss'
 
 export const Actors = () => {
-    const location = useLocation();
     const [ actorData, setActorData ] = useState();
-    
     useEffect(() => {
         const getActors = async () => {
-            try {
-                const response = await axios.get('https://api.mediehuset.net/detutroligeteater/actors')
-                if(response.data){
-                    setActorData(response.data.items);
-                }
-            } catch (error) {
-                console.error(`Fejl i actors ${error}`)
-            }
+            fetch('https://api.mediehuset.net/detutroligeteater/actors')
+                .then((response) => response.json())
+                .then((response) => setActorData(response.items))
+                .catch((error) => console.log("Fej i Skuespillere: ", error));
         }
         getActors();
     }, [])
