@@ -1,0 +1,144 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#SectionConfirm{
+    border: 2px solid $primaryColor;
+    padding: 3%;
+    padding-bottom: 5%;
+    margin-bottom: 10%;
+    position: relative;
+    h1{
+        color: $highlightOne;
+        font-size: 3.5rem;
+        padding-bottom: 2%;
+        text-align: right;
+        font-weight: lighter;
+    }
+    figure{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:4%;
+        img{
+            width: 100%;
+        }
+        figcaption{
+            @include Grid1;
+            #EventInfo{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 5%;
+                h2{
+                    font-size: 2.5rem;
+                }
+                h3{
+                    font-size: 2rem;
+                    padding-bottom: 1%;
+                    .thin{
+                        display: inline;
+                        margin-left: 1%;
+                        font-weight: 400;
+                    }
+                }
+            }
+            #TicketInfo{
+               display: grid;
+               grid-template-columns: 1fr;
+               #headers{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            } 
+            #info{
+                display: grid;
+                grid-template-columns: 1fr;
+                .ticketRow{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+            }
+        }
+    }
+    #buttonWrapper{
+        @include Grid2;
+        position: absolute;
+        bottom: -15%;
+        left: 55%;
+        width: 60%;
+        button{
+            padding: 3%;
+            width: 50%;
+            border: 0;
+            background-color: $primaryColor;
+            color: white;
+            font-size: 1.2rem;
+        }
+        a{
+            width: 100%;
+            button{
+                margin-left: 40%;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: $large) {
+    body{
+        #SectionConfirm{
+            margin-bottom: 15%;
+            figure{
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            #buttonWrapper{
+                bottom: -8%;
+            }
+        }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #SectionConfirm{
+        #buttonWrapper{
+            left: 46%;
+            button{
+                width: 80%;
+            }
+            a{
+                button{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #SectionConfirm{
+            figure{
+                figcaption{
+                    #EventInfo{
+                        h2{
+                            font-size: 2rem;
+                        }
+                        h3{
+                            font-size: 1.7rem;
+                        }
+                    }
+                    #TicketInfo{
+                        padding-bottom: 5%;
+                    }
+                }
+            }
+            #buttonWrapper{
+                left:20%;
+                button{
+                    width: 100%;
+                    margin-left: 5%;
+                }
+                
+            }
+        }  
+    }
+}

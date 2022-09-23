@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Layout } from '../../App/Layout/Layout'
 import { TicketForm } from '../../Partials/TicketForm/TicketForm'
 
 export const Ticket = () => {

@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
-import {  useLocation, useNavigate, useParams } from "react-router-dom";
+import {  Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../App/Auth/Auth";
 import { ConvertedDate, PriceToDK } from "../../App/Helper/Helpers";
 import { Layout } from "../../App/Layout/Layout";
 import './Form.scss'
+import './Confirm.scss'
 
 
 //TicketForm Component
@@ -310,7 +311,7 @@ export const Confirm = () => {
             localStorage.clear();
     }
     return(
-        <section>
+        <section id="SectionConfirm">
             <Layout title='Godkend ordre'>
             <figure>
                 <img src= {seatData.image_medium} alt="event-poster" />
@@ -322,12 +323,12 @@ export const Confirm = () => {
                         <h3>Dato: <div className="thin">{ConvertedDate(seatData.startdate, true)} Kl. {(seatData.starttime).substring(0, 5)}</div></h3>
                     </article>
                     <article id="TicketInfo">
-                        <div>
+                        <div id="headers">
                             <h3>Sæde</h3>
                             <h3>Række</h3>
                             <h3>Pris</h3>                            
                         </div>
-                        <div>
+                        <div id="info">
                             {seats && seats.map((seat, i) => {
                                 return(
                                     <div className="ticketRow" key={i}>
@@ -343,7 +344,10 @@ export const Confirm = () => {
             </figure>
             {console.log(seatData)}
             {console.log(seats)}
-            <button onClick={Submit}>Click</button>
+            <div id="buttonWrapper">
+                <Link to={`/tickets/${event_id}`}><button>Gå tilbage</button></Link>
+                <button onClick={Submit}>Godkend</button>
+            </div>
             </Layout>
         </section>
     )
