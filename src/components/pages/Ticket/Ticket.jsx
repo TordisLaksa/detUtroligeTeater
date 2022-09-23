@@ -24,8 +24,6 @@ export const Ticket = () => {
     }, [event_id])
     
     return(
-        <Layout>
             <TicketForm price={eventDetail.price} data={eventDetail} />
-        </Layout>
     )
 }

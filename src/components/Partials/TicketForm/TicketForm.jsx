@@ -7,6 +7,8 @@ import { ConvertedDate, PriceToDK } from "../../App/Helper/Helpers";
 import { Layout } from "../../App/Layout/Layout";
 import './Form.scss'
 
+
+//TicketForm Component
 export const TicketForm = ( props ) => {
     const navigate = useNavigate();
     const { event_id } = useParams();
@@ -140,62 +142,74 @@ export const TicketForm = ( props ) => {
     // return form
     return(
         <form id="FormReservation" onSubmit={handleSubmit(onSubmit)}>
-        <fieldset>
-            <img src={props.data.image_large} alt="event-billede" />
-            <div id="mainDivWrapper">
-            <div className="InfoResDiv">
-                <label htmlFor="firstname">Fornavn </label>
-                    <input type="text" id="firstname" {...register('firstname', { required: true, maxLength: 30 })} />
-                    {errors.firstname && (
-                        <span>Udfyld venligst dit fornavn!</span>
-                    )}
-            </div>
-            <div className="InfoResDiv">
-                <label htmlFor="lastname">Efternavn </label>
-                    <input type="text" id="lastname" {...register('lastname', { required: true, maxLength: 30 })} />
-                    {errors.lastname && (
-                        <span>Udfyld venligst dit efternavn!</span>
-                    )}
-            </div>
-            <div className="InfoResDiv">
-                <label htmlFor="address">Vejnavn & Nr </label>
-                <input type="text" id="address" {...register('address', { required: true })} />
-                    {errors.address && (
-                        <span>Udfyld venligst din adresse!</span>
-                    )}
-            </div>
-            <div className="InfoResDiv">
-                <label htmlFor="zipcode">Postnr. & By </label>
-                    <input type="number" id="zipcode" {...register('zipcode', { required: true, min: 1000, max: 9999 })} />
-                    <input type="text" id="city" {...register('city', { required: true })} />
-                    {errors.zipcode && (
-                        <span>Udfyld venligst dit postnr. !</span>
-                    )}
-                    {errors.city && (
-                        <span>Udfyld venligst dit by!</span>
-                    )}
-            </div>
-            <div className="InfoResDiv">
-                <label htmlFor="email">Email </label>
-                    <input type="email" id="email" {...register('email', { required: true })} />
-                    {errors.email && (
-                        <span>Udfyld venligst din email!</span>
-                    )}
-            </div>
-            <div className="InfoResDiv">
-                <label htmlFor="limit">Antal</label>
-                <input type="number" id="limit"  onClick={NumTicketChange} {...register('limit', { required: true, min: 1 })}/>
-                <div>
-                    {/** PriceToDK er en priskonverterer jeg har lavet i min helper 
-                     * her ganger jeg den med numTickets for at få prisen af x billetter  */}
-                    <h3>Pris: {PriceToDK(props.price * numTickets)}kr.</h3>
-                    <p>PRIS INKL. MOMS</p>
+        <fieldset> 
+            <div id='imgFormWrapper'>
+                <img src={props.data.image_large} alt="event-billede" />
+                <div id="Div">
+                    <Layout title='Køb billet'>
+                        <article>
+                            {console.log(props.data)}
+                            <h3>{props.data.title}</h3>
+                            <p>{props.data.stage_name}, {ConvertedDate(props.data.startdate)} Kl. {(props.data.starttime)}</p>
+                        </article>
+                    </Layout>
+                <div id="mainDivWrapper">
+                <div className="InfoResDiv">
+                    <label htmlFor="firstname">Fornavn </label>
+                        <input type="text" id="firstname" {...register('firstname', { required: true, maxLength: 30 })} />
+                        {errors.firstname && (
+                            <span>Udfyld venligst dit fornavn!</span>
+                        )}
+                </div>
+                <div className="InfoResDiv">
+                    <label htmlFor="lastname">Efternavn </label>
+                        <input type="text" id="lastname" {...register('lastname', { required: true, maxLength: 30 })} />
+                        {errors.lastname && (
+                            <span>Udfyld venligst dit efternavn!</span>
+                        )}
+                </div>
+                <div className="InfoResDiv">
+                    <label htmlFor="address">Vejnavn & Nr </label>
+                    <input type="text" id="address" {...register('address', { required: true })} />
+                        {errors.address && (
+                            <span>Udfyld venligst din adresse!</span>
+                        )}
+                </div>
+                <div className="InfoResDiv">
+                    <label htmlFor="zipcode">Postnr. & By </label>
+                    <div id="ZipCity">
+                        <input type="number" id="zipcode" {...register('zipcode', { required: true, min: 1000, max: 9999 })} />
+                        <input type="text" id="city" {...register('city', { required: true })} />
+                        {errors.zipcode && (
+                            <span>Udfyld venligst dit postnr. !</span>
+                        )}
+                        {errors.city && (
+                            <span>Udfyld venligst dit by!</span>
+                        )}
+                    </div>
+                </div>
+                <div className="InfoResDiv">
+                    <label htmlFor="email">Email </label>
+                        <input type="email" id="email" {...register('email', { required: true })} />
+                        {errors.email && (
+                            <span>Udfyld venligst din email!</span>
+                        )}
+                </div>
+                <div className="InfoResDiv">
+                    <label htmlFor="limit">Antal</label>
+                    <input type="number" id="limit"  onClick={NumTicketChange} {...register('limit', { required: true, min: 1 })}/>
+                    <div id="HELP">
+                        {/** PriceToDK er en priskonverterer jeg har lavet i min helper 
+                         * her ganger jeg den med numTickets for at få prisen af x billetter  */}
+                        <h3>Pris: {PriceToDK(props.price * numTickets)}kr.</h3>
+                        <p>PRIS INKL. MOMS</p>
+                    </div>
+                </div>
+                        {/** Her laver jeg en span, der fortæller at kunden skal vælge x sæder  / Den forsvinder når sæderne er valgte*/}
+                    {!checkedSeats ? <span>{`Du skal vælge ${numTickets} sæder`}</span> : null}
+                </div>
                 </div>
             </div>
-                    {/** Her laver jeg en span, der fortæller at kunden skal vælge x sæder  / Den forsvinder når sæderne er valgte*/}
-                {!checkedSeats ? <span>{`Du skal vælge ${numTickets} sæder`}</span> : null}
-            </div>
-            
             
             {/* --------------Her Kommer Sæde Selectionen---------------- */}
                 <section id="SeatSeaction">
@@ -208,7 +222,7 @@ export const TicketForm = ( props ) => {
                                 {seatData && seatData.map((seat, index) => {
                                     if (seat.line == line) {
                                         return (
-                                            <label key={seat.id}>{seat.id}
+                                            <label key={seat.id}>
                                                 <input
                                                     className={`seat${seat.number} reserved${seat.is_reserved}`}
                                                     //kalder handleOnChange med index som argument
@@ -232,10 +246,10 @@ export const TicketForm = ( props ) => {
             {/* ---------------------------------------------------------- */}
             
         </fieldset>
-            <div>
+            <div id="ApproveBtn">
                 <button>Godkend bestilling</button>
             </div>
-    </form>
+        </form>
     )
 }
 

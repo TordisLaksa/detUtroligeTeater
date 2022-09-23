@@ -3,40 +3,125 @@
 #FormReservation{
     fieldset{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         padding: 5%;
-
-        img{
-            width: 90%;
-        }
-        #mainDivWrapper{
-            
-            .InfoResDiv{
-                label{
-                    font-size: 1.2rem;
+        #imgFormWrapper{
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5%;
+            img{
+                margin-top: 30%;
+                width: 100%;
+            }
+            #Div{
+                h1{
+                    text-align: right;
+                   color: $highlightOne;
+                   font-size: 3rem ;
                 }
-                input{
-                    padding: .2%;
-                    border-radius: 5px;
-                    border: 1px solid #20202050;
+                article{
+                    text-align: right;
+                    padding-bottom: 4%;
+                }
+            
+            #mainDivWrapper{
+                position: relative;
+                span{
+                    position: absolute;
+                    left: 60%;
+                    bottom: 10%;
+                }
+                .InfoResDiv{
+                    width: 80%;
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    margin-bottom: 3%;
+                    gap: 0;
+                    #HELP {
+                        margin-top: 5%;
+                        h3{
+                            font-size: 1.7rem;
+                        }
+                    }
+                    label{
+                        font-size: 1.2rem;
+                        
+                    }
+                    input {
+                        &[type=text] {
+                            padding-left: 2%;
+                        }
+                        &[type=email]{
+                            padding-left: 2%;
+                        }
+                        &[type=number]{
+                            padding-left: 2%;
+                        }
+                    
+                    }
+                    #ZipCity{
+                        input{
+                            width: 50%;
+                            padding:.5%;
+                            &[type=number]{
+                                padding-left: 2%;
+                            }
+                            
+                        }
+                    }
+                    
+                    input{
+                        padding: .2%;
+                        border-radius: 5px;
+                        border: 1px solid #20202050;
+                        color: $primaryColor;
+                        font-size: 1.3rem;
+                        &:last-of-type{
+                            &[type=number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button{
+                                    opacity: 1;
+                            }
+                            
+                        }                        
+                    }
+                   
                 }
             }
         }
+        }
         #SeatSeaction{
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: 5%;
             div{
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 padding: 1%;
+                label{
+                    margin-inline: 2%;
+                    
+                }
+            }
+        }
+    }
+    #ApproveBtn{
+        width: 100%;
+        margin-block: 2%;
+        margin-left: 85%;
+        button{
+            background-color: $primaryColor;
+            border: 0;
+            padding: 1%;
+            width: 15%;
+            font-size: 1rem;
+            color: white;
+            &:hover{
+                background-color: $highlightOne;
             }
         }
     }
     
 }
-
-
 
 // BREAKPOINTS
 $x-large: 1300px;
@@ -47,16 +132,65 @@ $mobile: 580px;
 
 @media screen and (max-width: $large) {
     body{
-      background-color: $bg-red;
+      #FormReservation{
+        fieldset{
+            #imgFormWrapper{
+                #Div{
+                    #mainDivWrapper{
+                        .InfoResDiv{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+      }
     }
   }
 @media screen and (max-width: $tablet) {
   body{
-    background-color: $bg-yellow;     
+    #FormReservation{
+        fieldset{
+            height: 150vw;
+            #imgFormWrapper{
+                display: grid;
+                grid-template-columns: 1fr;
+                margin-bottom: 10%;
+                img{
+                    width: 80%;
+                    margin: auto;
+                }
+                #Div{
+                    padding-bottom: 5%;
+                    border-bottom: 1px solid #20202030;
+                    
+                }
+            }
+            #SeatSeaction{
+                height: 15%;
+                div{
+                    margin-inline: 15%;
+                    justify-content: space-evenly;
+                }
+            }
+        }
+        #ApproveBtn{
+            margin-left: 10%;
+            button{
+                width: 80%;
+                padding: 2%;
+                font-size: 1.3rem;
+            }
+        }
+    }  
   }
 }
 @media screen and (max-width: $mobile){
     body{
-    background-color: $bg-green;  
+        #FormReservation{
+            fieldset{
+                height: 190vw;
+            }
+        }  
     }
 }
