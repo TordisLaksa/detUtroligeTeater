@@ -1,0 +1,31 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+.Tak{
+    text-align: center;
+    margin-block: 10%;
+    color: $highlightOne;
+    font-size: 4rem;
+}
+
+@media screen and (max-width: $large) {
+    body{
+        .Tak{
+            margin-block: 20%;
+        }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    .Tak {
+            margin-block: 25%;
+        }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        .Tak {
+            margin-block: 25%;
+            font-size: 3rem;
+        }
+    }
+}

@@ -7,6 +7,7 @@ import { ConvertedDate, PriceToDK } from "../../App/Helper/Helpers";
 import { Layout } from "../../App/Layout/Layout";
 import './Form.scss'
 import './Confirm.scss'
+import './Thanks.scss'
 
 
 //TicketForm Component
