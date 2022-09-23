@@ -4,7 +4,7 @@
 #LoggedInPanel{
     position: absolute;
     left: 77%;
-    top: 15%;
+    top: 17%;
     p{
         text-transform: uppercase;
         font-size: 1.1rem;
@@ -19,12 +19,17 @@
         font-size: 1.3rem;
         background-color: $primaryColor;
         color: white;
+        &:hover{
+            background-color: $highlightOne;
+        }
     }
 }
 
 #MyPageWrapper{
-    border: 2px solid $primaryColor;
+    margin-block: 2%;
+    border: 1px solid $primaryColor;
     padding: 3%;
+    padding-bottom: 7%;
     h1{
         color: $highlightOne;
         font-size: 3rem;
@@ -42,30 +47,21 @@
             tbody{
                 tr{
                     display: grid;
-                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-columns: 3fr 2.5fr 2fr .5fr;
                     text-align: left;
-                    margin-bottom: .5%;
+                    gap: 5%;
+                    margin-bottom: .7%;
+                    padding-bottom: 1%;
+                    border-bottom: 1px solid #20202050;
                     th{
-                        width: fit-content;
-                        &:nth-of-type(2) {
-                            margin-left: 45%;
-                        }
-                        &:nth-of-type(3){
-                            margin-left: 70%;
-                        }
-                        &:last-of-type{
-                            margin-left: 84%;
-                        }
+                      font-size: 1.5rem;
                     }
-                    td{
-                        width: fit-content;
-                        &:nth-of-type(2) {
-                            margin-left: 45%;
-                        }
+                    td{ 
+                        font-size: 1.2rem;
                         &:nth-of-type(3) {
-                            margin-left: 67%;
                             .StarWrapper {                         
                                     svg {
+
                                         width: 1.2vw;
                                         height: 1.2vw;
                                         color: $highlightOne;
@@ -73,9 +69,8 @@
                                 }
                         }
                         &:last-of-type{
-                            margin-left: 87%;
+                            text-align: right;
                             a{
-                                margin-left: -.5vw;
                                 padding-right: .3vw;
                                 .edit{
                                     width: 1.2vw;
@@ -97,3 +92,131 @@
     }
 }
 
+
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+@media screen and (max-width: $large) {
+    body{
+      #LoggedInPanel{
+        left:70%;
+      }
+        #MyPageWrapper{
+            margin-bottom: 5%;
+            padding-top: 10%;
+            #ReviewPanelSection{
+                h2{
+                    font-size:1.7rem;
+                    padding-bottom: 5%;
+                }
+            }
+        }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #LoggedInPanel{
+        left: 63%
+    }
+    #MyPageWrapper{
+        margin-block: 10%;
+        h1{
+          padding-bottom: 0;
+        }
+        #ReviewPanelSection{
+            padding-block: 10%;
+            table{
+                tbody{
+                    tr{
+                        grid-template-columns: 3fr 2.5fr 2fr 1fr;
+                        padding-bottom: 2%;
+                        th{
+                            font-size: 1.3rem;
+                        }
+                        td{
+                            font-size: 1em;
+                            &:nth-of-type(3){
+                                margin: 0;
+                                padding: 0;
+                                .StarWrapper{
+                                    svg{
+                                        width: 2.2vw;
+                                        height: 2.2vw;
+                                    }
+                                }
+                            }
+                            &:last-of-type{
+                                a{
+                                    .edit{
+                                        width: 2vw;
+                                        height: 2vw;
+                                    }
+                                }
+                                .delete{
+                                    width: 2vw;
+                                    height: 2vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #LoggedInPanel{
+            left: 45%;
+            top:10%
+        }
+        #MyPageWrapper{
+            padding-top: 25%;
+            h1{
+                font-size: 2.7rem;
+            }
+            #ReviewPanelSection{
+                h2{
+                    font-size: 1.4rem;
+                }
+                table{
+                    tbody{
+                        tr{
+                            grid-template-columns: 2.5fr 2.5fr 2.5fr 1fr;
+                            th{
+                                font-size: 1rem;
+                            }
+                            td{
+                                &:nth-of-type(3){
+                                    .StarWrapper{
+                                        svg{
+                                            width: 3vw;
+                                            height: 3vw;
+                                        }
+                                    }
+                                }
+                                &:last-of-type{
+                                    a{
+                                        .edit{
+                                            width: 3vw;
+                                            height: 3vw;
+                                        }
+                                    }
+                                    .delete{
+                                        width: 3vw;
+                                        height: 3vw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
