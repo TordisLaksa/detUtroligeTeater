@@ -10,6 +10,7 @@ import { Edit } from '../../pages/Mypage/MyPage';
 import { NoPage } from '../../pages/NoPage';
 import { Ticket } from '../../pages/Ticket/Ticket';
 import { SearchEventResult } from '../../Partials/Search/SearchEventResult';
+import { Confirm, Receipt } from '../../Partials/TicketForm/TicketForm';
 
 
 export const AppRouter = () => {
@@ -27,6 +28,9 @@ export const AppRouter = () => {
             </Route> 
             <Route path='/edit/:id' element={<Edit />} />
             <Route path='/tickets/:event_id' element={<Ticket />} />
+            <Route path='/tickets/:event_id/confirm' element={<Confirm />}/>
+            <Route path='/receipt' element={<Receipt />}></Route>
+            
             <Route path='/search' element={<SearchEventResult />} />
             <Route path='*' element={<NoPage />} />
         </Routes>

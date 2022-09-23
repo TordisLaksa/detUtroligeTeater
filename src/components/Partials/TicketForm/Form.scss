@@ -1,0 +1,62 @@
+@import '../../../Assets/SCSS/bundle.scss';
+
+#FormReservation{
+    fieldset{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 5%;
+
+        img{
+            width: 90%;
+        }
+        #mainDivWrapper{
+            
+            .InfoResDiv{
+                label{
+                    font-size: 1.2rem;
+                }
+                input{
+                    padding: .2%;
+                    border-radius: 5px;
+                    border: 1px solid #20202050;
+                }
+            }
+        }
+        #SeatSeaction{
+            display: flex;
+            flex-direction: column;
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding: 1%;
+            }
+        }
+    }
+    
+}
+
+
+
+// BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      background-color: $bg-red;
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    background-color: $bg-yellow;     
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+    background-color: $bg-green;  
+    }
+}
